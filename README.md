@@ -1,2 +1,2 @@
 # Fishdex
-A small web app project for the Tregastel aquarium.
+Un petit projet de web app pour l'aquarium de Tregastel
