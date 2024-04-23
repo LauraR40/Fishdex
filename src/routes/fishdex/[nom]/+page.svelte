@@ -9,6 +9,7 @@
       <h4><b>{data.nom}</b></h4>
       <p>{data.description}</p>
     </div>
+    <a href="./{data.id}/desc">Desc</a>
   </div>
 
   <a href="/fishdex" class="button">Fishdex</a>

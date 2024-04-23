@@ -5,7 +5,7 @@ export async function load({ params }) {
   const nom = params.nom;
   let data = null;
   if (nom) {
-    data = getFish(nom);
+    data = await getFish(nom);
     if (data) return data;
   }
 
