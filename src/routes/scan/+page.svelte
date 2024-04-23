@@ -6,8 +6,7 @@
   let showModal = true;
 
   function qrCodeScanne(texte, _) {
-    console.log(texte);
-    document.getElementById("result").textContent = "Résultat : " + texte;
+    location.href = "/fishdex/" + texte;
   }
 
   const qrconfig = { fps: 10, qrbox: { width: 250, height: 250 } };
@@ -40,7 +39,10 @@
       <div id="result">Résultat ici</div>
     </div>
 
-    <a href="/" class="button">retour</a>
+    <div>
+      <a href="/" class="button">retour</a>
+      <a href="/fishdex" class="button">Fishdex</a>
+    </div>
   </div>
 </div>
 
