@@ -1,5 +1,6 @@
 <script>
   export let data;
+  import Navbar from "$components/navbar.svelte";
 </script>
 
 <div class="col">
@@ -14,6 +15,8 @@
 
   <a href="/fishdex" class="button">Fishdex</a>
 </div>
+
+<Navbar />
 
 <style>
   .card {

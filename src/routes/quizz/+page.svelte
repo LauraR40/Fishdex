@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import Navbar from "../../components/navbar.svelte";
 
   let answers = ["dolor", "scelerisque", "Nullam"];
 
@@ -44,6 +44,7 @@
 
   <button class="button" on:click={verifier}>vérifier</button>
 </div>
+<Navbar />
 
 <style>
   .answer {

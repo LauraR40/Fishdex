@@ -2,6 +2,7 @@
   import { Html5Qrcode } from "html5-qrcode";
   import { onMount, onDestroy } from "svelte";
   import Modal from "$components/modal.svelte";
+  import Navbar from "../../components/navbar.svelte";
 
   let showModal = true;
 
@@ -45,6 +46,8 @@
     </div>
   </div>
 </div>
+
+<Navbar />
 
 <!-- Modal de permission caméra -->
 

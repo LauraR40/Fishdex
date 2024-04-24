@@ -1,3 +1,41 @@
-<div class="bod"></div>
+<script>
+  import rondvert from "$lib/assets/rondvert.svg";
+  import Navbar from "../components/navbar.svelte";
+</script>
 
-<a class="button" href="/scan">Aller à Scan QR</a>
+<div class="disposition">
+  <div class="profil-niveau bloc-default gradiant-right">
+    <div class="ligne space">
+      <img alt="Avatar" />
+      <h4>Nom</h4>
+      <div>Affichage niveau</div>
+    </div>
+    <div class="ligne">
+      <img class="rond" alt="Point de couleur" src={rondvert} />
+      <p>Voir les récompenses de niveau →</p>
+    </div>
+  </div>
+  <div class="der-poisson bloc-default gradiant-left">
+    <div class="ligne pad">
+      <h2>Derniers Poissons Attrapés</h2>
+    </div>
+    <div class="pad">
+      <div class="fond-couvert">
+        <img alt="Poisson1" />
+        <img alt="Poisson2" />
+        <img alt="Poisson3" />
+      </div>
+    </div>
+  </div>
+  <div class="actual-zone bloc-default gradiant-left">
+    <div class="ligne pad">
+      <h2>Zone Actuelle</h2>
+    </div>
+    <p class="sous-titres">Zone des Embruns</p>
+  </div>
+  <div class="zone-pro bloc-default gradiant-right"></div>
+  <div class="conseil bloc-default gradiant-left"></div>
+
+  <a class="buttontemp" href="/scan">Aller à Scan QR</a>
+</div>
+<Navbar />

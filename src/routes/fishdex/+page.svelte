@@ -1,6 +1,7 @@
 <script>
   import { SessionDatabase } from "$lib/database";
   import { browser } from "$app/environment";
+  import Navbar from "$components/navbar.svelte";
   let items = [];
   const sessionDB = new SessionDatabase();
   if (browser) {
@@ -27,3 +28,5 @@
     <a href="/scan" class="button">Scanner</a>
   </div>
 </div>
+
+<Navbar/>
