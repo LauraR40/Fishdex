@@ -59,7 +59,5 @@
     <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
   </div>
   <div class="conseil bloc-default gradiant-left"></div>
-
-  <a class="buttontemp" href="/scan">Aller à Scan QR</a>
 </div>
 <Navbar />

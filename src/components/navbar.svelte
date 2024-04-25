@@ -33,6 +33,7 @@
     position: relative;
     text-decoration: none;
     color: whitesmoke;
+    width: 80px;
   }
   .icon {
     --size: 32px;
