@@ -1,14 +1,32 @@
 <script>
   import rondvert from "$lib/assets/rondvert.svg";
   import Navbar from "../components/navbar.svelte";
+
+  import { profileStore } from "$lib/store.js";
+  let profile;
+  profileStore.subscribe((value) => {
+    profile = value;
+  });
+
+  function ajoutPoints() {
+    profileStore.update((value) => {
+      value.points += 10;
+      return value;
+    });
+  }
 </script>
 
 <div class="disposition">
   <div class="profil-niveau bloc-default gradiant-right">
     <div class="ligne space">
-      <img alt="Avatar" />
-      <h4>Nom</h4>
-      <div>Affichage niveau</div>
+      <img alt="Avatar" src={profile.avatarUrl} />
+      <h4>{profile.nom}</h4>
+      <div>{Math.trunc(profile.points / 2)}</div>
+      <button
+        on:click={() => {
+          ajoutPoints(12);
+        }}>Ajouter</button
+      >
     </div>
     <div class="ligne">
       <img class="rond" alt="Point de couleur" src={rondvert} />
