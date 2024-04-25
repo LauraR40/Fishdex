@@ -4,6 +4,7 @@ import {
   PUBLIC_SUPABASE_ANON_KEY,
 } from "$env/static/public";
 import { fishStore, profileStore } from "./store";
+import { browser } from "$app/environment";
 
 export const supabase = createClient(
   PUBLIC_SUPABASE_URL,
@@ -28,13 +29,15 @@ export async function getFish(nom) {
     obj.url = getPhotoUrl(nom);
 
     // ajout du poisson dans le fishdex
-    fishStore.update((fish) => {
-      if (fish.filter((e) => e.id == nom).length == 0) {
-        fish.push(obj);
-        ajoutPoints(fish);
-      }
-      return fish;
-    });
+    if (browser) {
+      fishStore.update((fish) => {
+        if (fish.filter((e) => e.id == nom).length == 0) {
+          fish.push(obj);
+          ajoutPoints(fish, obj.zone);
+        }
+        return fish;
+      });
+    }
 
     return obj;
   }
@@ -42,11 +45,13 @@ export async function getFish(nom) {
   return null;
 }
 
-function ajoutPoints(fishes) {
+function ajoutPoints(fishes, zone) {
   // 1 poisson = 1 points
   // si premier poisson alors 2 points
   profileStore.update((profile) => {
     profile.points += fishes.length == 1 ? 2 : 1;
+    // mise à jour de la zone en fonction du poisson
+    profile.zone = zone;
     return profile;
   });
 }
