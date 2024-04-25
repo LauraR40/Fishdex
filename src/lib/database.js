@@ -3,7 +3,7 @@ import {
   PUBLIC_SUPABASE_URL,
   PUBLIC_SUPABASE_ANON_KEY,
 } from "$env/static/public";
-import { fishStore } from "./store";
+import { fishStore, profileStore } from "./store";
 
 export const supabase = createClient(
   PUBLIC_SUPABASE_URL,
@@ -31,6 +31,7 @@ export async function getFish(nom) {
     fishStore.update((fish) => {
       if (fish.filter((e) => e.id == nom).length == 0) {
         fish.push(obj);
+        ajoutPoints(fish);
       }
       return fish;
     });
@@ -39,6 +40,15 @@ export async function getFish(nom) {
   }
 
   return null;
+}
+
+function ajoutPoints(fishes) {
+  // 1 poisson = 1 points
+  // si premier poisson alors 2 points
+  profileStore.update((profile) => {
+    profile.points += fishes.length == 1 ? 2 : 1;
+    return profile;
+  });
 }
 
 export async function getAmountOfFishInZone(zone) {

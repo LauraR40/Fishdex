@@ -19,7 +19,6 @@
 </script>
 
 <div class="disposition">
-  <!--  TODO faire component -->
   <Profile />
   <div class="der-poisson bloc-default gradiant-left">
     <div class="ligne pad">
