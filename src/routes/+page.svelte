@@ -56,12 +56,15 @@
   </div>
   <!-- TODO Poissons attrapés zone -->
   <div class="zone-pro bloc-default gradiant-right">
-    <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
+    <div class="pad">
+      <h2>Zone {zones[$profileStore.zone].nom}</h2>
+      <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
+    </div>
   </div>
   <div class="conseil bloc-default gradiant-left">
-    <div class="ligne pad">
+    <div class="pad">
       <h2>Les Conseils du capitaine Trégastel !</h2>
-      <img alt="conseil" src="../lib/assets/conseil.svg" />
+      <img class="pad" alt="conseil" src="src/lib/assets/conseil.svg" />
     </div>
   </div>
   <div class="fin-page"></div>
