@@ -78,7 +78,7 @@
 > -->
 <dialog bind:this={dialog} on:close={() => (showModal = false)}>
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div on:click|stopPropagation>
+  <div>
     <slot name="header" />
     <!-- <slot id="modal-litleText" /> -->
     <!-- svelte-ignore a11y-autofocus -->

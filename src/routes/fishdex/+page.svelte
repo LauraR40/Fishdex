@@ -1,16 +1,15 @@
 <script>
-  import { SessionDatabase } from "$lib/database";
-  import { browser } from "$app/environment";
   import Navbar from "$components/navbar.svelte";
+  import { fishStore } from "$lib/store.js";
+
   let items = [];
-  const sessionDB = new SessionDatabase();
-  if (browser) {
-    items = sessionDB.items;
-  }
+
+  fishStore.subscribe((value) => {
+    items = value;
+  });
 
   function clearDex() {
-    sessionDB.clearItems();
-    location.reload();
+    fishStore.set([]);
   }
 </script>
 
@@ -29,4 +28,4 @@
   </div>
 </div>
 
-<Navbar/>
+<Navbar />

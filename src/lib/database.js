@@ -3,45 +3,12 @@ import {
   PUBLIC_SUPABASE_URL,
   PUBLIC_SUPABASE_ANON_KEY,
 } from "$env/static/public";
-import { browser } from "$app/environment";
+import { fishStore } from "./store";
 
 export const supabase = createClient(
   PUBLIC_SUPABASE_URL,
   PUBLIC_SUPABASE_ANON_KEY
 );
-
-export class SessionDatabase {
-  loadDex() {
-    let dex = localStorage.getItem("fishdex") ?? "[]";
-    dex = JSON.parse(dex);
-    return dex;
-  }
-
-  get items() {
-    return this.loadDex();
-  }
-
-  set items(array) {
-    localStorage.setItem("fishdex", JSON.stringify(array));
-  }
-
-  addItem(obj) {
-    let dex = this.loadDex();
-    if (dex.indexOf(obj) == -1) {
-      dex.push(obj);
-    }
-    this.items = dex;
-  }
-
-  removeItem(obj) {
-    let dex = this.loadDex();
-    this.items = dex.filter((e) => e !== obj);
-  }
-
-  clearItems() {
-    this.items = [];
-  }
-}
 
 function getPhotoUrl(name) {
   const { data } = supabase.storage.from("photos").getPublicUrl(name + ".png");
@@ -61,12 +28,12 @@ export async function getFish(nom) {
     obj.url = getPhotoUrl(nom);
 
     // ajout du poisson dans le fishdex
-    if (browser) {
-      const dex = new SessionDatabase();
-      if (dex.items.filter((e) => e.id == nom).length == 0) {
-        dex.addItem(obj);
+    fishStore.update((fish) => {
+      if (fish.filter((e) => e.id == nom).length == 0) {
+        fish.push(obj);
       }
-    }
+      return fish;
+    });
 
     return obj;
   }
