@@ -9,12 +9,13 @@
   let derniersPoissons = $fishStore.slice(-3);
 
   let nombrePoissonsZone = 0;
-  let nombrePoissonsAttrapésZone = $fishStore.filter(
-    (poisson) => poisson.zone === $profileStore.zone
-  ).length;
+  let nombrePoissonsAttrapésZone = 0;
 
   onMount(async () => {
     nombrePoissonsZone = await getAmountOfFishInZone($profileStore.zone);
+    nombrePoissonsAttrapésZone = $fishStore.filter(
+      (poisson) => poisson.zone === $profileStore.zone
+    ).length;
   });
 </script>
 
