@@ -11,7 +11,7 @@ export const supabase = createClient(
 );
 
 function getPhotoUrl(name) {
-  const { data } = supabase.storage.from("photos").getPublicUrl(name + ".png");
+  const { data } = supabase.storage.from("photos").getPublicUrl(name + ".jpg");
   return data.publicUrl;
 }
 
@@ -39,4 +39,12 @@ export async function getFish(nom) {
   }
 
   return null;
+}
+
+export async function getAmountOfFishInZone(zone) {
+  let { _, count } = await supabase
+    .from("poissons")
+    .select("*", { count: "exact" })
+    .eq("zone", zone);
+  return count;
 }
