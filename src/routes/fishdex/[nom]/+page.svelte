@@ -1,35 +1,27 @@
 <script>
   export let data;
   import Navbar from "$components/navbar.svelte";
+  import Profile from "$components/profile.svelte";
+  import { zones } from "$lib/index.js";
 </script>
 
-<div class="col">
-  <div class="card">
-    <img src={data.url} alt="image de {data.nom}" style="width:100%" />
-    <div class="container">
-      <h4><b>{data.nom}</b></h4>
-      <p>{data.description}</p>
+<div class="disposition">
+  <img src={data.url} alt={data.nom} />
+  <div>
+    <div>Vous avez attrapé un ...</div>
+    <div class="nom">
+      {data.nom}
     </div>
-    <a href="./{data.id}/desc">Desc</a>
+    <div class="zone">Zone : {zones[data.zone].nom}</div>
   </div>
 
-  <a href="/fishdex" class="button">Fishdex</a>
+  <a href="/fishdex/{data.id}/desc">En savoir plus sur le {data.nom}</a>
+
+  <Profile />
 </div>
 
 <Navbar />
 
 <style>
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 40%;
-  }
-
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  .container {
-    padding: 2px 16px;
-  }
+  /* TODO faire le design de la page */
 </style>

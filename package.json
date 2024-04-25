@@ -19,6 +19,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@macfja/svelte-persistent-store": "^2.4.1",
 		"@supabase/supabase-js": "^2.42.5"
 	}
 }

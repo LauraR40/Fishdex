@@ -1,57 +1,63 @@
 <script>
-  import rondvert from "$lib/assets/rondvert.svg";
   import Navbar from "../components/navbar.svelte";
+  import Profile from "../components/profile.svelte";
+  import { zones } from "$lib/index.js";
+  import { profileStore, fishStore } from "$lib/store.js";
+  import { getAmountOfFishInZone } from "$lib/database.js";
+  import { onMount } from "svelte";
 
-  import { profileStore } from "$lib/store.js";
-  let profile;
-  profileStore.subscribe((value) => {
-    profile = value;
+  let derniersPoissons = $fishStore.slice(-3);
+
+  let nombrePoissonsZone = 0;
+  let nombrePoissonsAttrapésZone = 0;
+
+  onMount(async () => {
+    nombrePoissonsZone = await getAmountOfFishInZone($profileStore.zone);
+    nombrePoissonsAttrapésZone = $fishStore.filter(
+      (poisson) => poisson.zone === $profileStore.zone
+    ).length;
   });
-
-  function ajoutPoints() {
-    profileStore.update((value) => {
-      value.points += 10;
-      return value;
-    });
-  }
 </script>
 
 <div class="disposition">
-  <div class="profil-niveau bloc-default gradiant-right">
-    <div class="ligne space">
-      <img alt="Avatar" src={profile.avatarUrl} />
-      <h4>{profile.nom}</h4>
-      <div>{Math.trunc(profile.points / 2)}</div>
-      <button
-        on:click={() => {
-          ajoutPoints(12);
-        }}>Ajouter</button
-      >
-    </div>
-    <div class="ligne">
-      <img class="rond" alt="Point de couleur" src={rondvert} />
-      <p>Voir les récompenses de niveau →</p>
-    </div>
-  </div>
+  <Profile />
   <div class="der-poisson bloc-default gradiant-left">
     <div class="ligne pad">
       <h2>Derniers Poissons Attrapés</h2>
     </div>
     <div class="pad">
       <div class="fond-couvert">
-        <img alt="Poisson1" />
-        <img alt="Poisson2" />
-        <img alt="Poisson3" />
+        {#each derniersPoissons as poisson}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+          <img
+            src={poisson.url}
+            alt={poisson.nom}
+            on:click={() => {
+              location.href = `/fishdex/${poisson.id}/desc`;
+            }}
+          />
+        {/each}
       </div>
     </div>
   </div>
+  <!-- TODO Zone actuelle -->
   <div class="actual-zone bloc-default gradiant-left">
     <div class="ligne pad">
       <h2>Zone Actuelle</h2>
     </div>
-    <p class="sous-titres">Zone des Embruns</p>
+    <p class="sous-titres">Zone {zones[$profileStore.zone].nom}</p>
+    <div class="pad">
+      <img
+        src={zones[$profileStore.zone].url}
+        alt={zones[$profileStore.zone].nom}
+      />
+    </div>
   </div>
-  <div class="zone-pro bloc-default gradiant-right"></div>
+  <!-- TODO Poissons attrapés zone -->
+  <div class="zone-pro bloc-default gradiant-right">
+    <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
+  </div>
   <div class="conseil bloc-default gradiant-left"></div>
 
   <a class="buttontemp" href="/scan">Aller à Scan QR</a>
