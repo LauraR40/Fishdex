@@ -357,3 +357,8 @@ dialog[open] {
   margin: 0 auto;
   box-shadow: 0px 1px 10px 0px #0000001f;
 }
+
+.fin-page {
+  height: 100px;
+  background-color: #c0d6ff;
+}

@@ -58,6 +58,12 @@
   <div class="zone-pro bloc-default gradiant-right">
     <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
   </div>
-  <div class="conseil bloc-default gradiant-left"></div>
+  <div class="conseil bloc-default gradiant-left">
+    <div class="ligne pad">
+      <h2>Les Conseils du capitaine Trégastel !</h2>
+      <img alt="conseil" src="../lib/assets/conseil.svg" />
+    </div>
+  </div>
+  <div class="fin-page"></div>
 </div>
 <Navbar />
