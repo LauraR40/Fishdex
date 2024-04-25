@@ -1,31 +1,36 @@
 <script>
   import Navbar from "$components/navbar.svelte";
+  import Profile from "$components/profile.svelte";
   import { fishStore } from "$lib/store.js";
 
-  let items = [];
-
-  fishStore.subscribe((value) => {
-    items = value;
-  });
-
-  function clearDex() {
-    fishStore.set([]);
-  }
+  let poissons = $fishStore;
 </script>
 
-<div class="col">
-  <h1>FishDex</h1>
-  <h3>Liste des poissons trouvés</h3>
-  <ul>
-    {#each items as item}
-      <li><a href="/fishdex/{item.id}">{item.nom}</a></li>
+<div class="disposition">
+  <Profile />
+  <div class="collection">
+    {#each poissons as poisson}
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+      <img
+        src={poisson.url}
+        alt={poisson.nom}
+        on:click={() => {
+          location.href = `/fishdex/${poisson.id}/desc`;
+        }}
+      />
     {/each}
-  </ul>
-
-  <div>
-    <button on:click={clearDex} class="button">Effacer la liste</button>
-    <a href="/scan" class="button">Scanner</a>
   </div>
 </div>
 
 <Navbar />
+
+<style>
+  /* TODO faire le design */
+
+  .collection {
+    border: 1px solid whitesmoke;
+    padding: 12px;
+    width: 90vw;
+  }
+</style>
