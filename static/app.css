@@ -202,6 +202,18 @@ dialog[open] {
   height: 95vh;
 }
 
+.disposition-carte {
+  margin: 0;
+  justify-content: center;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  overflow: scroll;
+  padding: 20px;
+  background-image: url("src/lib/assets/Vagues.svg");
+  height: 95vh;
+}
+
 .buttontemp {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -297,6 +309,11 @@ dialog[open] {
   height: 200px;
 }
 
+.der-carte {
+  height: 424px;
+  margin-top: 100px;
+}
+
 .actual-zone {
   height: 344px;
 }
@@ -362,4 +379,18 @@ dialog[open] {
 .fin-page {
   height: 100px;
   background-color: #c0d6ff;
+}
+
+.vagues {
+  position: absolute;
+  width: 100vw;
+  margin-top: 50vh;
+}
+
+.pos1 {
+  z-index: 1;
+}
+
+.pos2 {
+  z-index: 2;
 }

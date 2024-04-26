@@ -82,5 +82,6 @@
     display: flex;
     justify-content: space-evenly;
     width: 90vw;
+    z-index: 3;
   }
 </style>
