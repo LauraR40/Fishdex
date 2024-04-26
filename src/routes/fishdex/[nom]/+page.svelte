@@ -7,15 +7,23 @@
 
 <div class="disposition">
   <img src={data.url} alt={data.nom} />
-  <div>
-    <div>Vous avez attrapé un ...</div>
+  <div class="milieu" style="flex-direction:column; align-items:center;">
+    <div style="color: black;">Vous avez attrapé un ...</div>
     <div class="nom">
       {data.nom}
     </div>
-    <div class="zone">Zone : {zones[data.zone].nom}</div>
+    <div style="color: black; font-weight:700;" class="zone">
+      <bold>Zone : {zones[data.zone].nom}</bold>
+    </div>
   </div>
 
-  <a href="/fishdex/{data.id}/desc">En savoir plus sur le {data.nom}</a>
+  <div class="der-desc1 bloc-default gradiant-left">
+    <img alt="ampoule" src="../../lib/assets/ampoule.svg" />
+    <a
+      style="color:white; text-decoration:none; font-weight:700;"
+      href="/fishdex/{data.id}/desc">En savoir plus sur le {data.nom}</a
+    >
+  </div>
 
   <Profile />
 </div>
@@ -23,5 +31,13 @@
 <Navbar />
 
 <style>
-  /* TODO faire le design de la page */
+  .nom {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    justify-content: center;
+  }
+
+  .der-desc1 {
+    height: 70px;
+  }
 </style>
