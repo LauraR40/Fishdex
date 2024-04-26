@@ -17,8 +17,15 @@
     </div>
   </div>
 
-  <div class="der-desc1 bloc-default gradiant-left">
-    <img alt="ampoule" src="../../lib/assets/ampoule.svg" />
+  <div
+    style="justify-content: center; display: flex; align-items: center;"
+    class="der-desc1 bloc-default gradiant-left"
+  >
+    <img
+      style="margin-right: 20px;"
+      alt="ampoule"
+      src="../src/lib/assets/ampoule.svg"
+    />
     <a
       style="color:white; text-decoration:none; font-weight:700;"
       href="/fishdex/{data.id}/desc">En savoir plus sur le {data.nom}</a
@@ -26,6 +33,7 @@
   </div>
 
   <Profile />
+  <div class="fin-page"></div>
 </div>
 
 <Navbar />
