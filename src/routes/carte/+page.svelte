@@ -2,9 +2,6 @@
   import Navbar from "../../components/navbar.svelte";
 </script>
 
-<!-- <div>
-  <img class="vagues pos1" alt="vagues" src="src/lib/assets/Vagues.svg" />
-</div> -->
 <div class="disposition-carte pos2">
   <div class="der-carte bloc-default gradiant-left">
     <div class="ligne pad">
