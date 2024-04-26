@@ -32,5 +32,11 @@
     border: 1px solid whitesmoke;
     padding: 12px;
     width: 90vw;
+    background-color: #e8e7ff;
+    width: 90vw;
+    border-radius: 20px;
+    border: solid;
+    border-color: #f7f6ff;
+    border-width: 5px;
   }
 </style>

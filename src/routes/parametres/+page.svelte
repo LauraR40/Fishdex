@@ -3,50 +3,68 @@
 </script>
 
 <div class="disposition">
-  <div class="der-poisson bloc-default gradiant-left ligne space">
+  <div class="der-param bloc-default gradiant-left ligne space">
     <div>
-      <img alt="avatarTemp" />
+      <img alt="avatarTemp" src="src/lib/assets/AvatarTemp.svg" />
     </div>
     <div>
       <p>Changer l’avatar</p>
       <p>Vos preferences</p>
     </div>
   </div>
-  <div class="der-poisson bloc-default gradiant-left ligne space">
+  <div class="der-param bloc-default gradiant-left ligne space">
     <div>
-      <img alt="niveau" />
+      <img alt="niveau" src="src/lib/assets/niveauTemp.svg" />
     </div>
     <div>
       <p>Vos récompenses</p>
       <p>Des fonds d’écran</p>
     </div>
   </div>
-  <div class="der-poisson bloc-default gradiant-left">
-    <img alt="icone vibre" />
-    <p>Vibreur</p>
-    <p>Vibration quand le scan est validé.</p>
-    <img alt="bouton" />
+  <div class="der-param bloc-default gradiant-left ligne space">
+    <div>
+      <img alt="icone vibre" src="src/lib/assets/icons/iconVibre.svg" />
+    </div>
+    <div>
+      <p>Vibreur</p>
+      <p>Vibration quand le scan est validé.</p>
+    </div>
+    <div>
+      <img alt="bouton" src="src/lib/assets/Switch1.svg" />
+    </div>
   </div>
-  <div class="der-poisson bloc-default gradiant-left">
-    <img alt="icone cloche" />
-    <p>Sonnerie</p>
-    <p>Sonne quand le scan est valide.</p>
-    <img alt="bouton" />
+  <div class="der-param bloc-default gradiant-left ligne space">
+    <div>
+      <img alt="icone cloche" src="src/lib/assets/icons/Cloche.svg" />
+    </div>
+    <div>
+      <p>Sonnerie</p>
+      <p>Sonne quand le scan est valide.</p>
+    </div>
+    <div>
+      <img alt="bouton" src="src/lib/assets/Switch2.svg" />
+    </div>
   </div>
-  <div class="der-poisson bloc-default gradiant-left">
-    <img alt="valide" />
-    <p>Notez-nous</p>
-    <p>Votre meilleur récompense pour nous</p>
+  <div class="der-param bloc-default gradiant-left ligne space">
+    <img alt="valide" src="src/lib/assets/icons/Valide.svg" />
+    <div>
+      <p>Notez-nous</p>
+      <p>Votre meilleur récompense pour nous</p>
+    </div>
   </div>
-  <div class="der-poisson bloc-default gradiant-left">
-    <img alt="partage" />
-    <p>Partager</p>
-    <p>Partager l’application avec d’autres.</p>
+  <div class="der-param bloc-default gradiant-left ligne space">
+    <img alt="partage" src="src/lib/assets/icons/partage.svg" />
+    <div>
+      <p>Partager</p>
+      <p>Partager l’application avec d’autres.</p>
+    </div>
   </div>
-  <div class="der-poisson bloc-default gradiant-left">
-    <img alt="info" />
-    <p>Politique de confidentialité</p>
-    <p>Suivez nos politiques qui vous sont favorables</p>
+  <div class="der-param bloc-default gradiant-left ligne space">
+    <img alt="info" src="src/lib/assets/icons/info.svg" />
+    <div>
+      <p>Politique de confidentialité</p>
+      <p>Suivez nos politiques qui vous sont favorables</p>
+    </div>
   </div>
   <div class="fin-page"></div>
 </div>
