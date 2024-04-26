@@ -35,15 +35,6 @@
     <div class="col">
       <div id="reader"></div>
     </div>
-    <div class="col" style="padding: 30px">
-      <h4>Résultat du scan</h4>
-      <div id="result">Résultat ici</div>
-    </div>
-
-    <div>
-      <a href="/" class="button">retour</a>
-      <a href="/fishdex" class="button">Fishdex</a>
-    </div>
   </div>
 </div>
 
