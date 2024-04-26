@@ -16,6 +16,7 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <img
+        style="width: 20vw;"
         src={poisson.url}
         alt={poisson.nom}
         on:click={() => {
