@@ -30,10 +30,18 @@
   console.log("Component mounted, scanner setup initiated");
 </script>
 
-<div class="bod">
-  <div class="row">
-    <div class="col">
-      <div id="reader"></div>
+<div
+  style="background-color: #4E5869;
+width: 100vw;
+height: 100vh;
+justify-content: center;
+    display: flex;"
+>
+  <div class="bod">
+    <div class="row">
+      <div class="col">
+        <div id="reader"></div>
+      </div>
     </div>
   </div>
 </div>
