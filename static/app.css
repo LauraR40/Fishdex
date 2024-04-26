@@ -199,6 +199,7 @@ dialog[open] {
   overflow: scroll;
   padding: 20px;
   background-color: #c0d6ff;
+  height: 95vh;
 }
 
 .buttontemp {
@@ -297,7 +298,7 @@ dialog[open] {
 }
 
 .actual-zone {
-  height: 322px;
+  height: 344px;
 }
 
 .zone-pro {

@@ -47,12 +47,15 @@
       <h2>Zone Actuelle</h2>
     </div>
     <p class="sous-titres">Zone {zones[$profileStore.zone].nom}</p>
-    <div class="pad">
-      <img
-        src={zones[$profileStore.zone].url}
-        alt={zones[$profileStore.zone].nom}
-      />
-    </div>
+    <a href="/carte">
+      <div class="pad milieu">
+        <img
+          src={zones[$profileStore.zone].url}
+          alt={zones[$profileStore.zone].nom}
+          style="width: 60vw;"
+        />
+      </div>
+    </a>
   </div>
   <!-- TODO Poissons attrapés zone -->
   <div class="zone-pro bloc-default gradiant-right">
