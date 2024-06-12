@@ -3,7 +3,9 @@
   import { zones } from "$lib/index.js";
 </script>
 
-<div class="disposition">
+<div
+  class="disposition"
+>
   <div onclick="history.back()" class="retour">&leftarrow;</div>
 
   <div>
