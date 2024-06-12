@@ -111,6 +111,7 @@ video {
 
 #qr-shaded-region {
   border-width: 87.5px 122px !important;
+  border-color: rgba(0, 0, 0, 0.00001) !important;
 }
 
 /* modal perm appareil photo*/

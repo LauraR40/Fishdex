@@ -41,7 +41,13 @@ justify-content: center;
     <div class="row">
       <div class="col">
         <div id="reader"></div>
+        <img
+          style="width: 10rem; height: 10rem; position: absolute;"
+          src="/images/decor code.png"
+          alt=""
+        />
       </div>
+      <p>Approchez-vous du QR code...</p>
     </div>
   </div>
 </div>
