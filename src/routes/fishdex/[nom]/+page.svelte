@@ -11,7 +11,11 @@
 >
   <div class="milieu" style="flex-direction:column; align-items:center;">
     <img src="/images/fond.png" alt="fond" />
-    <img style="position:absolute; top: 20%;" src={data.url} alt={data.nom} />
+    <img
+      style="position:absolute; top: 12%; width: 45vw; border-radius: 50px;"
+      src={data.url}
+      alt={data.nom}
+    />
     <div style="color: black;">Vous avez attrapé un ...</div>
     <div style="" class="nom">
       {data.nom}

@@ -3,38 +3,51 @@
   import { zones } from "$lib/index.js";
 </script>
 
-<div
-  class="disposition"
->
-  <div onclick="history.back()" class="retour">&leftarrow;</div>
-
+<div style="background-color: #76A4F9;" class="disposition">
   <div>
-    <span class="nom">{data.nom}</span>
-    <span class="zone">Zone {zones[data.zone].nom}</span>
+    <div onclick="history.back()" class="retour">&leftarrow;</div>
+    <span
+      style="font-weight: 900; text-transform:uppercase; font-size:2rem"
+      class="nom">{data.nom}</span
+    >
+    <span style="color:black; font-weight:700;" class="zone"
+      >Zone {zones[data.zone].nom}</span
+    >
   </div>
-  <div>
+  <div
+    style="display: flex; justify-content:center; position:absolute; width:100vw; height:30vh; top: 8rem;"
+  >
     <img src={data.url} alt={data.nom} />
   </div>
+  <div
+    style="background-color: white;
+    width: 100vw;
+    height: 75vh;
+    top: 20vh;
+    color: black;
+    margin-top: 5rem;
+    border-radius: 30px;"
+  >
+    <div class="infos">
+      <div class="ligne">
+        <div class="categorie">
+          <span>{data.taille}</span>
+          <span>Taille</span>
+        </div>
+        <div class="categorie">
+          <span>{data.type}</span>
+          <span>Type</span>
+        </div>
+        <div class="categorie">
+          <span>{data.famille}</span>
+          <span>Famille</span>
+        </div>
+      </div>
 
-  <div class="infos">
-    <div class="ligne">
-      <div class="categorie">
-        <span>{data.taille}</span>
-        <span>Taille</span>
+      <div class="description">
+        <h2>Description</h2>
+        <p>{data.description}</p>
       </div>
-      <div class="categorie">
-        <span>{data.type}</span>
-        <span>Type</span>
-      </div>
-      <div class="categorie">
-        <span>{data.famille}</span>
-        <span>Famille</span>
-      </div>
-    </div>
-
-    <div class="description">
-      <h2>Description</h2>
-      <p>{data.description}</p>
     </div>
 
     <div class="galerie">
@@ -47,8 +60,8 @@
   /* TODO design à faire */
   .retour {
     cursor: pointer;
-    font-size: xx-large;
+    font-size: 3.5rem;
     font-weight: bolder;
-    color: #333;
+    color: white;
   }
 </style>
