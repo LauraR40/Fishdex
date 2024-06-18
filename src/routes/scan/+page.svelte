@@ -5,7 +5,7 @@
   import Navbar from "../../components/navbar.svelte";
   import { profileStore } from "$lib/store";
   let showModal = true;
-  const audioPlayer = new Audio("/sons/camera.mp3");
+  let audioPlayer = null;
 
   function qrCodeScanne(texte, scanner) {
     if (scanner.isScanning) {
@@ -13,14 +13,16 @@
     }
     // activation vibreur
     if ($profileStore.options.vibreur) {
-      navigator.vibrate(200); // vibre pendant 200ms
+      let _ = navigator.vibrate(2500); // vibre pendant 200ms
     }
     //activation son
-    if ($profileStore.options.son) {
+    if (audioPlayer && $profileStore.options.son) {
       audioPlayer.play();
     }
     // affichage de la page du poisson
-    location.href = "/fishdex/" + texte;
+    setTimeout(() => {
+      window.location.href = `/fishdex/${texte}`;
+    }, 500);
   }
 
   const qrconfig = { fps: 10, qrbox: { width: 250, height: 250 } };
@@ -28,6 +30,7 @@
 
   // Initialisation du scanner
   onMount(async () => {
+    audioPlayer = new Audio("/sons/camera.mp3");
     qrcode = new Html5Qrcode("reader");
     const perms = await navigator.permissions.query({ name: "camera" });
     const state = perms?.state;

@@ -9,10 +9,13 @@
   style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
   class="disposition"
 >
-  <div class="milieu" style="flex-direction:column; align-items:center;">
+  <div
+    class="milieu"
+    style="flex-direction:column; align-items:center; position:relative;"
+  >
     <img src="/images/fond.png" alt="fond" />
     <img
-      style="position:absolute; top: 10%; width: 45vw; border-radius: 50px;"
+      style="position:absolute; top: 6%; width: 45vw; border-radius: 50px;"
       src={data.url}
       alt={data.nom}
     />
