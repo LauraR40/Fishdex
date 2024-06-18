@@ -1,7 +1,8 @@
 <script>
-  import Navbar from "../../components/navbar.svelte";
+  import Navbar from "$components/navbar.svelte";
   import { getAvatarUrl } from "$lib/database";
   import { profileStore } from "$lib/store.js";
+  import Switch from "$components/switch.svelte";
 
   function changeAvatar() {
     // récup nombre aléatoire
@@ -14,11 +15,21 @@
     // mettre à jour le profileStore
     $profileStore.avatarUrl = avatarUrl;
   }
+
+  async function openPartage() {
+    const data = {
+      title: "AquaDev",
+      text: "Capturez les tous !",
+      url: location.origin,
+    };
+
+    await navigator.share(data);
+  }
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="disposition">
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     on:click={changeAvatar}
     class="der-param bloc-default gradiant-left ligne space"
@@ -28,7 +39,7 @@
     </div>
     <div>
       <p>Changer l’avatar</p>
-      <p>Vos preferences</p>
+      <p class="gris">Vos preferences</p>
     </div>
   </div>
   <div class="der-param bloc-default gradiant-left ligne space">
@@ -47,7 +58,7 @@
     </div>
     <div>
       <p>Vos récompenses</p>
-      <p>Des fonds d’écran</p>
+      <p class="gris">Des fonds d’écran</p>
     </div>
   </div>
   <!-- <div class="der-param bloc-default gradiant-left ligne space">
@@ -63,16 +74,18 @@
     </div>
   </div> -->
   <div class="der-param bloc-default gradiant-left ligne space">
-    <div>
+    <div
+      style="    width: 20vw;
+    display: flex;
+    justify-content: center;"
+    >
       <img alt="icone cloche" src="src/lib/assets/icons/Cloche.svg" />
     </div>
-    <div>
+    <div style="margin-left: 2vw;">
       <p>Sonnerie</p>
-      <p>Sonne quand le scan est valide.</p>
+      <p class="gris">Sonne quand le scan est valide.</p>
     </div>
-    <div>
-      <img alt="bouton" src="src/lib/assets/Switch2.svg" />
-    </div>
+    <Switch />
   </div>
   <!-- <div class="der-param bloc-default gradiant-left ligne space">
     <img alt="valide" src="src/lib/assets/icons/Valide.svg" />
@@ -81,11 +94,14 @@
       <p>Votre meilleur récompense pour nous</p>
     </div>
   </div> -->
-  <div class="der-param bloc-default gradiant-left ligne space">
+  <div
+    on:click={openPartage}
+    class="der-param bloc-default gradiant-left ligne space"
+  >
     <img alt="partage" src="src/lib/assets/icons/partage.svg" />
     <div>
       <p>Partager</p>
-      <p>Partager l’application avec d’autres.</p>
+      <p class="gris">Partager l’application avec d’autres.</p>
     </div>
   </div>
   <a href="/politique" style="text-decoration:none; color:white;">
@@ -101,10 +117,20 @@
         style="margin-left: 2vw; margin-right: 2vw; display:flex; justify-content: center; flex-direction: column;"
       >
         <p>Politique de confidentialité</p>
-        <p>Suivez nos politiques qui vous sont favorables</p>
+        <p class="gris">Suivez nos politiques qui vous sont favorables</p>
       </div>
     </div>
   </a>
   <div class="fin-page"></div>
 </div>
 <Navbar />
+
+<style>
+  .gris {
+    color: #c3c7c7;
+  }
+
+  p {
+    margin: 0;
+  }
+</style>
