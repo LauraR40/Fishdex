@@ -4,7 +4,8 @@ import { persist, createSessionStorage } from "@macfja/svelte-persistent-store";
 export const profileStore = persist(
   writable({
     nom: "Anonyme",
-    avatarUrl: "",
+    avatarUrl:
+      "https://ffarwbibjveedymakzhd.supabase.co/storage/v1/object/public/Avatars/1.png",
     points: 0,
     zone: "des_marees",
   }),

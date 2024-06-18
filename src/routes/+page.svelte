@@ -29,6 +29,9 @@
     </div>
     <div class="pad">
       <div class="fond-couvert">
+        {#if derniersPoissons.length == 0}
+          <p>Pas de poisson.</p>
+        {/if}
         {#each derniersPoissons as poisson}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->

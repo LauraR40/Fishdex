@@ -5,14 +5,12 @@
 
 <div class="profil-niveau bloc-default gradiant-right">
   <div class="ligne">
-    <!-- <img
+    <img
       style="margin-left: 20px;"
       alt="Avatar"
-      src="src/lib/assets/AvatarTemps.svg"
-    /> -->
-    <div style="margin-left: 20px;" class="avatar"></div>
+      src={$profileStore.avatarUrl}
+    />
     <!--TODO: Il faut trouver un moyen pour que le lien de l'image sois toujours valable -->
-    <!--{$profileStore.avatarUrl} -->
     <h4 style="margin-left: 10px;">{$profileStore.nom}</h4>
     <div>
       <div class="poly">

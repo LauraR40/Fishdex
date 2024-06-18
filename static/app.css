@@ -270,6 +270,7 @@ dialog[open] {
   display: flex;
   border-radius: 10px;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .fond-couvert img {
@@ -277,7 +278,6 @@ dialog[open] {
   border-radius: 23px;
   width: 18vw;
   height: 9vh;
-  margin-top: 10px;
   box-shadow: 1px 1px 5px #3a3a3a;
 }
 
@@ -302,10 +302,6 @@ dialog[open] {
     #9f9de9 20%,
     #4441d5 150%
   );
-}
-
-.profil-niveau {
-  height: 120px;
 }
 
 .der-poisson {

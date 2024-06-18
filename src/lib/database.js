@@ -11,9 +11,17 @@ export const supabase = createClient(
   PUBLIC_SUPABASE_ANON_KEY
 );
 
-function getPhotoUrl(name) {
-  const { data } = supabase.storage.from("photos").getPublicUrl(name + ".jpg");
+function getFromBucket(bucketName, path) {
+  const { data } = supabase.storage.from(bucketName).getPublicUrl(path);
   return data.publicUrl;
+}
+
+export function getPhotoUrl(name) {
+  return getFromBucket("photos", name + ".jpg");
+}
+
+export function getAvatarUrl(name) {
+  return getFromBucket("Avatars", name);
 }
 
 export async function getFish(nom) {

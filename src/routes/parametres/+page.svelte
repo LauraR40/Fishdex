@@ -1,11 +1,30 @@
 <script>
   import Navbar from "../../components/navbar.svelte";
+  import { getAvatarUrl } from "$lib/database";
+  import { profileStore } from "$lib/store.js";
+
+  function changeAvatar() {
+    // récup nombre aléatoire
+    const numAlea = Math.floor(Math.random() * 9) + 1; // nb random [1,9]
+    // construire nom avatar
+    const nomAvatar = `${numAlea}.png`; // ex : 1.png
+    // Récupération avatar URL
+    const avatarUrl = getAvatarUrl(nomAvatar);
+
+    // mettre à jour le profileStore
+    $profileStore.avatarUrl = avatarUrl;
+  }
 </script>
 
 <div class="disposition">
-  <div class="der-param bloc-default gradiant-left ligne space">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div
+    on:click={changeAvatar}
+    class="der-param bloc-default gradiant-left ligne space"
+  >
     <div>
-      <img alt="avatarTemp" src="src/lib/assets/AvatarTemp.svg" />
+      <img alt="Mon Avatar" src={$profileStore.avatarUrl} />
     </div>
     <div>
       <p>Changer l’avatar</p>
