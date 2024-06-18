@@ -19,7 +19,7 @@
     const perms = await navigator.permissions.query({ name: "camera" });
     const state = perms?.state;
     if (state == "granted")
-      qrcode.start({ facingMode: "user" }, qrconfig, qrCodeScanne);
+      qrcode.start({ facingMode: "environment" }, qrconfig, qrCodeScanne);
   });
 
   onDestroy(async () => {
