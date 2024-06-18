@@ -12,7 +12,7 @@
   <div class="milieu" style="flex-direction:column; align-items:center;">
     <img src="/images/fond.png" alt="fond" />
     <img
-      style="position:absolute; top: 12%; width: 45vw; border-radius: 50px;"
+      style="position:absolute; top: 10%; width: 45vw; border-radius: 50px;"
       src={data.url}
       alt={data.nom}
     />

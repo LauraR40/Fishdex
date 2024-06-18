@@ -21,6 +21,8 @@
 
 <div class="disposition">
   <Profile />
+
+  <!-- Derniers poissons attrapés -->
   <div class="der-poisson bloc-default gradiant-left">
     <div class="ligne pad">
       <h2>Derniers Poissons Attrapés</h2>
@@ -41,7 +43,8 @@
       </div>
     </div>
   </div>
-  <!-- TODO Zone actuelle -->
+
+  <!-- Zone actuelle -->
   <div class="actual-zone bloc-default gradiant-left">
     <div class="ligne pad">
       <h2>Zone Actuelle</h2>
@@ -52,18 +55,25 @@
         <img
           src={zones[$profileStore.zone].url}
           alt={zones[$profileStore.zone].nom}
-          style="width: 60vw;"
+          style=" width: 70vw;
+                  height: 30vh;
+                  border-radius: 20px;"
         />
       </div>
     </a>
   </div>
+
   <!-- TODO Poissons attrapés zone -->
+  <!-- Ajouter barre-->
   <div class="zone-pro bloc-default gradiant-right">
     <div class="pad">
       <h2>Zone {zones[$profileStore.zone].nom}</h2>
       <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
     </div>
   </div>
+
+  <!-- TODO Conseils du capitaine -->
+  <!-- Ajouter capitaine-->
   <div class="conseil bloc-default gradiant-left">
     <div class="pad">
       <h2>Les Conseils du capitaine Trégastel !</h2>

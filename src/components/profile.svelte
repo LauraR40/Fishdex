@@ -5,11 +5,13 @@
 
 <div class="profil-niveau bloc-default gradiant-right">
   <div class="ligne">
-    <img
+    <!-- <img
       style="margin-left: 20px;"
       alt="Avatar"
       src="src/lib/assets/AvatarTemps.svg"
-    />
+    /> -->
+    <div style="margin-left: 20px;" class="avatar"></div>
+    <!--TODO: Il faut trouver un moyen pour que le lien de l'image sois toujours valable -->
     <!--{$profileStore.avatarUrl} -->
     <h4 style="margin-left: 10px;">{$profileStore.nom}</h4>
     <div>
@@ -25,13 +27,3 @@
     <p>Voir les récompenses de niveau →</p>
   </div>
 </div>
-
-<style>
-  .poly {
-    background-image: url("src/lib/assets/Polygon 1.svg");
-    height: 20px;
-    width: 23px;
-    margin-left: 20px;
-    background-repeat: no-repeat;
-  }
-</style>

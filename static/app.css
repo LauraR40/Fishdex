@@ -322,7 +322,7 @@ dialog[open] {
 }
 
 .actual-zone {
-  height: 344px;
+  height: 380px;
 }
 
 .zone-pro {
@@ -400,4 +400,16 @@ dialog[open] {
 
 .pos2 {
   z-index: 2;
+}
+
+.poly {
+  background-image: url("src/lib/assets/Polygon 1.svg");
+  height: 20px;
+  width: 23px;
+  margin-left: 20px;
+  background-repeat: no-repeat;
+}
+
+.avatar {
+  background-image: url("my-app/src/lib/assets/AvatarTemps.svg");
 }
