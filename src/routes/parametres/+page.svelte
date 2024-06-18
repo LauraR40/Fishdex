@@ -61,18 +61,25 @@
       <p class="gris">Des fonds d’écran</p>
     </div>
   </div>
-  <!-- <div class="der-param bloc-default gradiant-left ligne space">
-    <div>
+  <div class="der-param bloc-default gradiant-left ligne space">
+    <div
+      style="    width: 20vw;
+    display: flex;
+    justify-content: center;"
+    >
       <img alt="icone vibre" src="src/lib/assets/icons/iconVibre.svg" />
     </div>
-    <div>
+    <div style="margin-left: 2vw;">
       <p>Vibreur</p>
-      <p>Vibration quand le scan est validé.</p>
+      <p class="gris">Vibre quand le scan est validé.</p>
     </div>
-    <div>
-      <img alt="bouton" src="src/lib/assets/Switch1.svg" />
-    </div>
-  </div> -->
+    <Switch
+      clickEvent={(val) => {
+        $profileStore.options.vibreur = val;
+      }}
+      checked={$profileStore.options.vibreur}
+    />
+  </div>
   <div class="der-param bloc-default gradiant-left ligne space">
     <div
       style="    width: 20vw;
@@ -85,7 +92,12 @@
       <p>Sonnerie</p>
       <p class="gris">Sonne quand le scan est valide.</p>
     </div>
-    <Switch />
+    <Switch
+      clickEvent={(val) => {
+        $profileStore.options.son = val;
+      }}
+      checked={$profileStore.options.son}
+    />
   </div>
   <!-- <div class="der-param bloc-default gradiant-left ligne space">
     <img alt="valide" src="src/lib/assets/icons/Valide.svg" />

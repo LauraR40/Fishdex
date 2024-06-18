@@ -8,6 +8,10 @@ export const profileStore = persist(
       "https://ffarwbibjveedymakzhd.supabase.co/storage/v1/object/public/Avatars/1.png",
     points: 0,
     zone: "des_marees",
+    options: {
+      vibreur: false,
+      son: false,
+    },
   }),
   createSessionStorage(),
   "profile"

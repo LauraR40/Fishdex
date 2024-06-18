@@ -1,14 +1,30 @@
+<script>
+  export let clickEvent = (bool) => {}; // event à l'appuie sur le btn
+  export let checked = false;
+</script>
+
 <form style="width: 30%;">
   <div class="form-field">
     <div class="field-inner">
       <div class="switch">
-        <input
-          style="width: 4rem;
-    height: 4rem;"
-          type="checkbox"
-          name="checkbox"
-          id="check1"
-        />
+        {#if checked}
+          <input
+            style="width: 4rem;height: 4rem;"
+            type="checkbox"
+            name="checkbox"
+            id="check1"
+            on:click={(e) => clickEvent(e.target.checked)}
+            checked
+          />
+        {:else}
+          <input
+            style="width: 4rem;height: 4rem;"
+            type="checkbox"
+            name="checkbox"
+            id="check1"
+            on:click={(e) => clickEvent(e.target.checked)}
+          />
+        {/if}
         <span class="checked"></span>
       </div>
     </div>

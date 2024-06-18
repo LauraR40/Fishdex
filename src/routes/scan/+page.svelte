@@ -3,10 +3,23 @@
   import { onMount, onDestroy } from "svelte";
   import Modal from "$components/modal.svelte";
   import Navbar from "../../components/navbar.svelte";
-
+  import { profileStore } from "$lib/store";
   let showModal = true;
+  const audioPlayer = new Audio("/sons/camera.mp3");
 
-  function qrCodeScanne(texte, _) {
+  function qrCodeScanne(texte, scanner) {
+    if (scanner.isScanning) {
+      scanner.stop();
+    }
+    // activation vibreur
+    if ($profileStore.options.vibreur) {
+      navigator.vibrate(200); // vibre pendant 200ms
+    }
+    //activation son
+    if ($profileStore.options.son) {
+      audioPlayer.play();
+    }
+    // affichage de la page du poisson
     location.href = "/fishdex/" + texte;
   }
 
@@ -19,7 +32,9 @@
     const perms = await navigator.permissions.query({ name: "camera" });
     const state = perms?.state;
     if (state == "granted")
-      qrcode.start({ facingMode: "environment" }, qrconfig, qrCodeScanne);
+      qrcode.start({ facingMode: "environment" }, qrconfig, (o) => {
+        qrCodeScanne(o, qrcode);
+      });
   });
 
   onDestroy(async () => {
