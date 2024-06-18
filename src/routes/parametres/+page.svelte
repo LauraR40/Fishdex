@@ -21,7 +21,7 @@
       <p>Des fonds d’écran</p>
     </div>
   </div>
-  <div class="der-param bloc-default gradiant-left ligne space">
+  <!-- <div class="der-param bloc-default gradiant-left ligne space">
     <div>
       <img alt="icone vibre" src="src/lib/assets/icons/iconVibre.svg" />
     </div>
@@ -32,7 +32,7 @@
     <div>
       <img alt="bouton" src="src/lib/assets/Switch1.svg" />
     </div>
-  </div>
+  </div> -->
   <div class="der-param bloc-default gradiant-left ligne space">
     <div>
       <img alt="icone cloche" src="src/lib/assets/icons/Cloche.svg" />
@@ -45,13 +45,13 @@
       <img alt="bouton" src="src/lib/assets/Switch2.svg" />
     </div>
   </div>
-  <div class="der-param bloc-default gradiant-left ligne space">
+  <!-- <div class="der-param bloc-default gradiant-left ligne space">
     <img alt="valide" src="src/lib/assets/icons/Valide.svg" />
     <div>
       <p>Notez-nous</p>
       <p>Votre meilleur récompense pour nous</p>
     </div>
-  </div>
+  </div> -->
   <div class="der-param bloc-default gradiant-left ligne space">
     <img alt="partage" src="src/lib/assets/icons/partage.svg" />
     <div>
@@ -59,13 +59,23 @@
       <p>Partager l’application avec d’autres.</p>
     </div>
   </div>
-  <div class="der-param bloc-default gradiant-left ligne space">
-    <img alt="info" src="src/lib/assets/icons/info.svg" />
-    <div>
-      <p>Politique de confidentialité</p>
-      <p>Suivez nos politiques qui vous sont favorables</p>
+  <a href="/politique" style="text-decoration:none; color:white;">
+    <div class="der-param bloc-default gradiant-left ligne space">
+      <div
+        style="width: 20vw;
+    display: flex;
+    justify-content: center;"
+      >
+        <img alt="info" src="src/lib/assets/icons/info.svg" />
+      </div>
+      <div
+        style="margin-left: 2vw; margin-right: 2vw; display:flex; justify-content: center; flex-direction: column;"
+      >
+        <p>Politique de confidentialité</p>
+        <p>Suivez nos politiques qui vous sont favorables</p>
+      </div>
     </div>
-  </div>
+  </a>
   <div class="fin-page"></div>
 </div>
 <Navbar />

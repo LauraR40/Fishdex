@@ -6,9 +6,15 @@
   style="margin-left: 7vw;
     margin-right: 7vw;
     margin-bottom: 10vh;
-    height: 115vh;"
+    height: 120vh;"
 >
-  <h1>Mentions Légales</h1>
+  <br />
+  <a
+    style="text-decoration: none; color: white; font-family:Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;"
+    href="/parametres">← Retour</a
+  >
+
+  <h1 style="color: #ffa564;">Mentions Légales</h1>
 
   <h2>Éditeur du site :</h2>
 
