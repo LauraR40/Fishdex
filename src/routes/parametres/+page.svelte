@@ -32,8 +32,18 @@
     </div>
   </div>
   <div class="der-param bloc-default gradiant-left ligne space">
-    <div>
-      <img alt="niveau" src="src/lib/assets/niveauTemp.svg" />
+    <div
+      class="poly"
+      style="width: 56px;
+    height: 56px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;"
+    >
+      <span style="color: black; font-weight: 700;font-size: xx-large;"
+        >{Math.trunc($profileStore.points / 2)}</span
+      >
     </div>
     <div>
       <p>Vos récompenses</p>
