@@ -4,8 +4,11 @@
   import Navbar from "$components/navbar.svelte";
 </script>
 
-<div style="background-color: #76A4F9;" class="disposition">
-  <div style="width: 100vw; margin-left: 7vh;">
+<div
+  style="background-color: #76A4F9;position:relative;overflow:hidden;"
+  class="disposition"
+>
+  <div style="width: 100%; margin-left: 7vh;">
     <div onclick="history.back()" class="retour">&leftarrow;</div>
     <div style="display:flex; align-items: flex-end;">
       <span

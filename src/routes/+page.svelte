@@ -74,12 +74,21 @@
 
   <!-- TODO Conseils du capitaine -->
   <!-- Ajouter capitaine-->
-  <div class="conseil bloc-default gradiant-left">
+  <div
+    style="position: relative; height:34vh;"
+    class="conseil bloc-default gradiant-left"
+  >
     <div class="pad">
       <h2>Les Conseils du capitaine Trégastel !</h2>
       <img class="pad" alt="conseil" src="src/lib/assets/conseil.svg" />
     </div>
+    <img
+      style="position:absolute; bottom:0; left:50%; transform:translateX(-50%);"
+      src="/images/capitaine.png"
+      alt="captain"
+    />
   </div>
   <div class="fin-page"></div>
 </div>
+
 <Navbar />
