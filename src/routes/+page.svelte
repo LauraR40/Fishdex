@@ -70,11 +70,16 @@
   <!-- TODO Poissons attrapés zone -->
   <!-- Ajouter barre-->
   <div class="zone-pro bloc-default gradiant-right">
-    <div class="pad">
+    <div style="padding-bottom: 0;" class="pad">
       <h2>Zone {zones[$profileStore.zone].nom}</h2>
       <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
     </div>
-    <div style="height: 5vh;">
+    <div
+      style="height: 3vh;
+    width: 80vw;
+    padding: 2vh;
+    padding-top: 0px;"
+    >
       {#key nombrePoissonsAttrapésZone}
         <Progressbar
           val={nombrePoissonsAttrapésZone}
@@ -85,7 +90,7 @@
   </div>
 
   <!-- TODO Conseils du capitaine -->
-  <!-- Ajouter capitaine-->
+  <!-- Corriger fautes -->
   <div
     style="position: relative; height:34vh;"
     class="conseil bloc-default gradiant-left"

@@ -321,10 +321,6 @@ dialog[open] {
   height: 380px;
 }
 
-.zone-pro {
-  height: 120px;
-}
-
 .milieu {
   display: flex;
   justify-content: center;

@@ -15,9 +15,12 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+    border-radius: 90px;
   }
 
   .progress {
+    width: 25%;
+
     display: block;
     height: 100%;
 
