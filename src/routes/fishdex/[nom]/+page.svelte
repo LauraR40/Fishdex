@@ -19,7 +19,7 @@
       src={data.url}
       alt={data.nom}
     />
-    <div style="color: black;">Vous avez attrapé un ...</div>
+    <div style="color: black;">Vous avez rencontré un ...</div>
     <div style="" class="nom">
       {data.nom}
     </div>

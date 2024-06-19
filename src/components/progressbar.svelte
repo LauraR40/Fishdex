@@ -23,6 +23,7 @@
 
     display: block;
     height: 100%;
+    border-radius: 90px;
 
     background-image: repeating-linear-gradient(
       135deg,
