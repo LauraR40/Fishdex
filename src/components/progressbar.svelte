@@ -11,6 +11,7 @@
 <style>
   .progress-wrapper {
     border: 2px solid black;
+    border-color: rgba(0, 0, 0, 0.19);
     background-color: whitesmoke;
     width: 100%;
     height: 100%;
@@ -27,10 +28,10 @@
 
     background-image: repeating-linear-gradient(
       135deg,
-      transparent,
-      transparent 4px,
-      blue 8px,
-      blue 8px
+      #fff080,
+      #fff0805a 4px,
+      #93ade0 8px,
+      #93ade0 8px
     );
   }
 </style>
