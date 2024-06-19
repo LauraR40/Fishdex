@@ -5,6 +5,7 @@
   import { profileStore, fishStore } from "$lib/store.js";
   import { getAmountOfFishInZone } from "$lib/database.js";
   import { onMount } from "svelte";
+  import Progressbar from "../components/progressbar.svelte";
 
   let derniersPoissons = $fishStore.slice(-3);
 
@@ -72,6 +73,14 @@
     <div class="pad">
       <h2>Zone {zones[$profileStore.zone].nom}</h2>
       <p>{nombrePoissonsAttrapésZone} / {nombrePoissonsZone}</p>
+    </div>
+    <div style="height: 5vh;">
+      {#key nombrePoissonsAttrapésZone}
+        <Progressbar
+          val={nombrePoissonsAttrapésZone}
+          total={nombrePoissonsZone}
+        />
+      {/key}
     </div>
   </div>
 
