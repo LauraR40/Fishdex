@@ -10,7 +10,7 @@
 
 <style>
   .progress-wrapper {
-    border: 2px solid black;
+    border: 3px solid black;
     border-color: rgba(0, 0, 0, 0.19);
     background-color: whitesmoke;
     width: 100%;
