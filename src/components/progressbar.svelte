@@ -19,8 +19,7 @@
   }
 
   .progress {
-    width: 25%;
-
+    width: 0%;
     display: block;
     height: 100%;
 
