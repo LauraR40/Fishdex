@@ -1,5 +1,5 @@
 <script>
-  import { signIn, updateStores } from "$lib/database";
+  import { signIn } from "$lib/database";
 
   async function handleForm(form) {
     const email = form.target.email.value;
@@ -7,9 +7,7 @@
     const name = form.target.name.value;
 
     const id = await signIn(email, password, name);
-    console.log(email, password, name, id);
     if (id) {
-      await updateStores(id);
       location.href = "/";
     }
   }

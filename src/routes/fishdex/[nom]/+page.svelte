@@ -3,51 +3,54 @@
   import Navbar from "$components/navbar.svelte";
   import Profile from "$components/profile.svelte";
   import { zones } from "$lib/index.js";
+  import { profileStore, checkConnected } from "$lib/database";
 </script>
 
-<div
-  style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
-  class="disposition"
->
+{#await checkConnected() then}
   <div
-    class="milieu"
-    style="flex-direction:column; align-items:center; position:relative;"
+    style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
+    class="disposition"
   >
-    <img src="/images/fond.png" alt="fond" />
-    <img
-      style="position:absolute; top: 6%; width: 45vw; border-radius: 50px;"
-      src={data.url}
-      alt={data.nom}
-    />
-    <div style="color: black;">Vous avez attrapé un ...</div>
-    <div style="" class="nom">
-      {data.nom}
-    </div>
-    <div style="color: black; font-weight:700;" class="zone">
-      <bold>Zone : {zones[data.zone].nom}</bold>
-    </div>
-
-    <br />
     <div
-      style="justify-content: center; display: flex; align-items: center;"
-      class="der-desc1 bloc-default gradiant-left"
+      class="milieu"
+      style="flex-direction:column; align-items:center; position:relative;"
     >
+      <img src="/images/fond.png" alt="fond" />
       <img
-        style="margin-right: 20px;"
-        alt="ampoule"
-        src="../src/lib/assets/ampoule.svg"
+        style="position:absolute; top: 6%; width: 45vw; border-radius: 50px;"
+        src={data.url}
+        alt={data.nom}
       />
-      <a
-        style="color:white; text-decoration:none; font-weight:700;"
-        href="/fishdex/{data.id}/desc">En savoir plus sur le {data.nom}</a
-      >
-    </div>
-    <br />
-    <Profile />
-  </div>
+      <div style="color: black;">Vous avez attrapé un ...</div>
+      <div style="" class="nom">
+        {data.nom}
+      </div>
+      <div style="color: black; font-weight:700;" class="zone">
+        <bold>Zone : {zones[data.zone].nom}</bold>
+      </div>
 
-  <div class="fin-page"></div>
-</div>
+      <br />
+      <div
+        style="justify-content: center; display: flex; align-items: center;"
+        class="der-desc1 bloc-default gradiant-left"
+      >
+        <img
+          style="margin-right: 20px;"
+          alt="ampoule"
+          src="../src/lib/assets/ampoule.svg"
+        />
+        <a
+          style="color:white; text-decoration:none; font-weight:700;"
+          href="/fishdex/{data.id}/desc">En savoir plus sur le {data.nom}</a
+        >
+      </div>
+      <br />
+      <Profile user={$profileStore} />
+    </div>
+
+    <div class="fin-page"></div>
+  </div>
+{/await}
 
 <Navbar />
 

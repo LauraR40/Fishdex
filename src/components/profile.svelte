@@ -1,6 +1,7 @@
 <script>
-  import { profileStore } from "$lib/store.js";
   import rondvert from "$lib/assets/rondvert.svg";
+  import { getAvatarUrl } from "$lib/database";
+  export let user;
 </script>
 
 <div class="profil-niveau bloc-default gradiant-right">
@@ -8,14 +9,14 @@
     <img
       style="margin-left: 20px;"
       alt="Avatar"
-      src={$profileStore.avatarUrl}
+      src={getAvatarUrl(user.avatar_id + ".png")}
     />
     <!--TODO: Il faut trouver un moyen pour que le lien de l'image sois toujours valable -->
-    <h4 style="margin-left: 10px;">{$profileStore.nom}</h4>
+    <h4 style="margin-left: 10px;">{user.nom}</h4>
     <div>
       <div class="poly">
         <span style="color: black; margin-left: 26%; font-weight: 700;"
-          >{Math.trunc($profileStore.points / 2)}</span
+          >{Math.trunc(user.points / 2)}</span
         >
       </div>
     </div>

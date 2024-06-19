@@ -3,12 +3,17 @@ import {
   PUBLIC_SUPABASE_URL,
   PUBLIC_SUPABASE_ANON_KEY,
 } from "$env/static/public";
-import { fishStore, profileStore } from "./store";
+import { writable, get } from "svelte/store";
 import { browser } from "$app/environment";
-
 export const supabase = createClient(
   PUBLIC_SUPABASE_URL,
   PUBLIC_SUPABASE_ANON_KEY
+);
+import { persist, createSessionStorage } from "@macfja/svelte-persistent-store";
+export const profileStore = persist(
+  writable(undefined),
+  createSessionStorage(),
+  "profile"
 );
 
 function getFromBucket(bucketName, path) {
@@ -31,19 +36,23 @@ export async function getFish(nom) {
     .eq("id", nom)
     .limit(1)
     .single();
+
   if (data) {
     const obj = { ...data };
     // récupération du lien de l'image associée
     obj.url = getPhotoUrl(nom);
 
-    // ajout du poisson dans le fishdex
+    // Ajout du poisson dans le profil de l'utilisateur
     if (browser) {
-      fishStore.update((fish) => {
-        if (fish.filter((e) => e.id == nom).length == 0) {
-          fish.push(obj);
-          ajoutPoints(fish, obj.zone);
-        }
-        return fish;
+      const profile = await checkConnected();
+      const poissons = profile.poissons;
+      if (poissons.filter((e) => e.id == nom).length == 0) {
+        poissons.push(obj);
+      }
+      // Mise à jour du profil
+      await updateProfile({
+        poissons: poissons,
+        ...ajoutPoints(profile, obj.zone),
       });
     }
 
@@ -53,15 +62,12 @@ export async function getFish(nom) {
   return null;
 }
 
-function ajoutPoints(fishes, zone) {
-  // 1 poisson = 1 points
-  // si premier poisson alors 2 points
-  profileStore.update((profile) => {
-    profile.points += fishes.length == 1 ? 2 : 1;
-    // mise à jour de la zone en fonction du poisson
-    profile.zone = zone;
-    return profile;
-  });
+function ajoutPoints(profile, zone) {
+  const pts = profile.poissons.length == 1 ? 2 : 1;
+  return {
+    current_zone: zone,
+    points: profile.points + pts,
+  };
 }
 
 export async function getAmountOfFishInZone(zone) {
@@ -137,7 +143,7 @@ export async function getProfile(user_id) {
     alert(userError.message);
     return;
   }
-
+  profileStore.set(user);
   return user;
 }
 
@@ -147,6 +153,7 @@ export async function getProfile(user_id) {
 export async function logOut() {
   try {
     await supabase.auth.signOut();
+    profileStore.set(undefined);
   } catch (_) {}
 }
 
@@ -156,8 +163,31 @@ export async function checkConnected() {
   } = await supabase.auth.getUser();
   if (!user) {
     location.href = "/login";
-    return false;
+    throw new Error("User not connected");
   }
-
-  return true;
+  let profile = get(profileStore);
+  console.warn("profile", profile);
+  if (!profile) {
+    profile = await getProfile(user.id);
+  }
+  console.warn(profile);
+  return profile;
+}
+/**
+ * Modifie la bdd
+ * @param {*} updater
+ * {
+ *  "nom_col" : nouvelle_valeur,
+ * }
+ */
+export async function updateProfile(updater) {
+  const userId = get(profileStore).id;
+  const { data, error } = await supabase
+    .from("profiles")
+    .update(updater)
+    .eq("id", userId)
+    .select();
+  profileStore.update(() => {
+    return data[0];
+  });
 }

@@ -3,20 +3,20 @@
   import { onMount, onDestroy } from "svelte";
   import Modal from "$components/modal.svelte";
   import Navbar from "../../components/navbar.svelte";
-  import { profileStore } from "$lib/store";
+  import { checkConnected } from "$lib/database";
   let showModal = true;
   let audioPlayer = null;
 
-  function qrCodeScanne(texte, scanner) {
+  function qrCodeScanne(texte, scanner, options) {
     if (scanner.isScanning) {
       scanner.stop();
     }
     // activation vibreur
-    if ($profileStore.options.vibreur) {
+    if (options.vibreur) {
       let _ = navigator.vibrate(2500); // vibre pendant 200ms
     }
     //activation son
-    if (audioPlayer && $profileStore.options.son) {
+    if (audioPlayer && options.son) {
       audioPlayer.play();
     }
     // affichage de la page du poisson
@@ -30,13 +30,14 @@
 
   // Initialisation du scanner
   onMount(async () => {
+    const profile = await checkConnected();
     audioPlayer = new Audio("/sons/camera.mp3");
     qrcode = new Html5Qrcode("reader");
     const perms = await navigator.permissions.query({ name: "camera" });
     const state = perms?.state;
     if (state == "granted")
       qrcode.start({ facingMode: "environment" }, qrconfig, (o) => {
-        qrCodeScanne(o, qrcode);
+        qrCodeScanne(o, qrcode, { son: profile.son, vibreur: profile.vibreur });
       });
   });
 
@@ -44,8 +45,6 @@
     if (!qrcode) return;
     await qrcode.stop();
   });
-
-  console.log("Component mounted, scanner setup initiated");
 </script>
 
 <div
