@@ -32,7 +32,7 @@
     <!-- Derniers poissons attrapés -->
     <div class="der-poisson bloc-default gradiant-left">
       <div class="ligne pad">
-        <h2>Derniers Poissons Attrapés</h2>
+        <h2 class="titre">Derniers poissons rencontrés</h2>
       </div>
       <div class="pad">
         <div class="fond-couvert">
@@ -57,7 +57,7 @@
     <!-- Zone actuelle -->
     <div class="actual-zone bloc-default gradiant-left">
       <div class="ligne pad">
-        <h2>Zone Actuelle</h2>
+        <h2 class="titre">Zone Actuelle</h2>
       </div>
       <p class="sous-titres">Zone {zones[data.profile.current_zone].nom}</p>
       <a href="/carte">
@@ -77,11 +77,11 @@
     <!-- Ajouter barre-->
     <div class="zone-pro bloc-default gradiant-right">
       <div style="padding-bottom: 0;" class="pad">
-        <h2>Zone {zones[data.profile.current_zone].nom}</h2>
+        <h2 class="titre">Zone {zones[data.profile.current_zone].nom}</h2>
         <p>{data.nombrePoissonsAttrapésZone} / {data.nombrePoissonsZone}</p>
       </div>
       <div
-        style="height: 3vh;
+        style="height: 2.5vh;
     width: 80vw;
     padding: 2vh;
     padding-top: 0px;"
@@ -100,7 +100,7 @@
       class="conseil bloc-default gradiant-left"
     >
       <div class="pad">
-        <h2>Les Conseils du capitaine Trégastel !</h2>
+        <h2 class="titre">Les Conseils du capitaine Trégastel !</h2>
         <img class="pad" alt="conseil" src="src/lib/assets/conseil.svg" />
       </div>
       <img
@@ -114,3 +114,10 @@
 {/await}
 
 <Navbar />
+
+<style>
+  .titre {
+    text-transform: uppercase;
+    text-align: center;
+  }
+</style>
