@@ -71,3 +71,93 @@ export async function getAmountOfFishInZone(zone) {
     .eq("zone", zone);
   return count;
 }
+
+/**
+ * Crée un compte utilisateur
+ * @param {*} email // email de l'utilisateur
+ * @param {*} password // mot de passe
+ * @param {*} name // nom de l'utilisateur
+ * @returns {string | null} l'id de l'utilisateur ou null si une erreur est survenue
+ */
+export async function signIn(email, password, name = "Anonyme") {
+  const { data, error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+      data: {
+        nom: name,
+      },
+    },
+  });
+
+  if (error) {
+    //TODO Afficher jolie erreur
+    console.error(error);
+    alert(error.message);
+    return null;
+  }
+
+  return data.user.id;
+}
+
+/**
+ * Connecte un utilisateur
+ * @param {*} email // email de l'utilisateur
+ * @param {*} password // mot de passe
+ * Met à jour le profileStore et le $profileStore.poissons avec les données de l'utilisateur
+ */
+export async function logIn(email, password) {
+  let { data, error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password,
+  });
+
+  if (error) {
+    //TODO Afficher jolie erreur
+    console.error(error);
+    alert(error.message);
+    return;
+  }
+}
+/**
+ * Mise à jour des stores avec les données de l'utilisateur
+ * @param {*} user_id // id de l'utilisateur
+ */
+export async function getProfile(user_id) {
+  const { data: user, error: userError } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user_id)
+    .limit(1)
+    .single();
+
+  if (userError) {
+    //TODO Afficher jolie erreur
+    console.error(userError);
+    alert(userError.message);
+    return;
+  }
+
+  return user;
+}
+
+/**
+ * Déconnecte l'utilisateur
+ */
+export async function logOut() {
+  try {
+    await supabase.auth.signOut();
+  } catch (_) {}
+}
+
+export async function checkConnected() {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    location.href = "/login";
+    return false;
+  }
+
+  return true;
+}
