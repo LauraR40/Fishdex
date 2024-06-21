@@ -48,12 +48,12 @@ export async function getFish(nom) {
       const poissons = profile.poissons;
       if (poissons.filter((e) => e.id == nom).length == 0) {
         poissons.push(obj);
+        // Mise à jour du profil
+        await updateProfile({
+          poissons: poissons,
+          ...ajoutPoints(profile, obj.zone),
+        });
       }
-      // Mise à jour du profil
-      await updateProfile({
-        poissons: poissons,
-        ...ajoutPoints(profile, obj.zone),
-      });
     }
 
     return obj;
