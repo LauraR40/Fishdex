@@ -84,7 +84,7 @@
 <!-- CSS des mentions légales -->
 <style>
   .separ {
-    background-color: white;
+    background-color: #322b79;
     height: 2px;
     border-style: none;
   }
