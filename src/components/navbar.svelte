@@ -1,29 +1,36 @@
 <script>
 </script>
 
+<!-- Barre de menu -->
 <nav>
+  <!-- Lien vers la page d'accueil  -->
   <a href="/">
     <span class="icon accueil"></span>
     <span>Accueil</span>
   </a>
+  <!-- Lien vers la page Collection  -->
   <a href="/fishdex"
     ><span class="icon collection"></span>
     <span>Collection</span></a
   >
+  <!-- Lien vers la page Scanner  -->
   <a href="/scan" style="width: 32px;">
     <span class="icon peche-pas-au-sens-du-fruit"> </span>
     <span style="display: none;">Scanner</span>
   </a>
+  <!-- Lien vers la page Carte  -->
   <a href="/carte"
     ><span class="icon map"> </span>
     <span>Carte</span></a
   >
+  <!-- Lien vers la page Paramètres  -->
   <a href="/parametres"
     ><span class="icon parametres"> </span>
     <span>Paramètres</span></a
   >
 </nav>
 
+<!-- CSS de la barre de menu -->
 <style>
   a {
     display: flex;

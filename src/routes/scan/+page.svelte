@@ -47,6 +47,7 @@
   });
 </script>
 
+<!-- Page Sacnner de QR code -->
 <div
   style="background-color: #4E5869;
 width: 100vw;
@@ -57,6 +58,7 @@ justify-content: center;
   <div class="bod">
     <div class="row">
       <div class="col">
+        <!-- Le scanner -->
         <div id="reader"></div>
         <img
           style="width: 10rem; height: 10rem; position: absolute;"
@@ -69,10 +71,10 @@ justify-content: center;
   </div>
 </div>
 
+<!-- Menu -->
 <Navbar />
 
 <!-- Modal de permission caméra -->
-
 <Modal bind:showModal>
   <h2 slot="header">
     "Fishdex" souhaite accéder à votre caméra <br />
@@ -80,6 +82,7 @@ justify-content: center;
   </h2>
 </Modal>
 
+<!-- CSS du Sacnner de QR code -->
 <style>
   .bod {
     margin: 0;

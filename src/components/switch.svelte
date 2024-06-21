@@ -3,6 +3,7 @@
   export let checked = false;
 </script>
 
+<!-- Bouton switch pour sonnerie et vibreur  -->
 <form style="width: 30%;">
   <div class="form-field">
     <div class="field-inner">
@@ -31,6 +32,7 @@
   </div>
 </form>
 
+<!-- CSS du bouton switch -->
 <style>
   form {
     height: 100%;

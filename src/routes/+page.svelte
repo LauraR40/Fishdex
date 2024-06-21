@@ -23,9 +23,13 @@
   }
 </script>
 
+<!-- Page d'accueil -->
+
+<!-- Loading -->
 {#await fetchData()}
   <p>Chargement...</p>
 {:then data}
+  <!-- Profil utilisateur -->
   <div class="disposition">
     <Profile user={data.profile} />
 
@@ -111,8 +115,10 @@
   </div>
 {/await}
 
+<!-- Menu -->
 <Navbar />
 
+<!-- CSS page accueil -->
 <style>
   .titre {
     text-transform: uppercase;

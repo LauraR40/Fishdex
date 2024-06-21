@@ -4,11 +4,15 @@
   import { checkConnected, profileStore } from "$lib/database";
 </script>
 
+<!-- Page collection  -->
+
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 {#await checkConnected() then}
   <div class="disposition-fishdex">
+    <!-- Profile de l'utilisateur  -->
     <Profile user={$profileStore} />
+    <!-- Affichage des poissons rencontrés  -->
     <div class="collection">
       <h2 style="color: #476AAD; margin-bottom: 15px;">
         Votre collection de poissons
@@ -27,8 +31,10 @@
   </div>
 {/await}
 
+<!-- Menu  -->
 <Navbar />
 
+<!-- CSS de la page collection  -->
 <style>
   .collection {
     border: 1px solid;

@@ -7,6 +7,7 @@
   }
 </script>
 
+<!-- Page de déconnexion -->
 <section>
   <h1>Logout</h1>
   <form on:submit|preventDefault={handleForm}>
@@ -14,6 +15,7 @@
   </form>
 </section>
 
+<!-- CSS de la page de déconnexion -->
 <style>
   form {
     display: flex;

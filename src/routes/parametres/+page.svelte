@@ -31,10 +31,13 @@
   }
 </script>
 
+<!-- Page paramètres -->
+
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 {#await checkConnected() then}
   <div class="disposition">
+    <!-- Bouton pour changer d'avatar -->
     <div
       on:click={changeAvatar}
       class="der-param bloc-default gradiant-left ligne space"
@@ -50,6 +53,8 @@
         <p class="gris">Vos preferences</p>
       </div>
     </div>
+
+    <!-- Lien vers la page récompenses -->
     <div class="der-param bloc-default gradiant-left ligne space">
       <div
         class="poly"
@@ -69,6 +74,8 @@
         <p class="gris">Des fonds d’écran</p>
       </div>
     </div>
+
+    <!-- Bouton pour activer / retirer le vibreur -->
     <div class="der-param bloc-default gradiant-left ligne space">
       <div
         style="    width: 20vw;
@@ -88,6 +95,8 @@
         checked={$profileStore.vibreur}
       />
     </div>
+
+    <!-- Bouton pour activer / retirer la sonnerie -->
     <div class="der-param bloc-default gradiant-left ligne space">
       <div
         style="    width: 20vw;
@@ -114,6 +123,8 @@
       <p>Votre meilleur récompense pour nous</p>
     </div>
   </div> -->
+
+    <!-- Bouton pour partager la page -->
     <div
       on:click={openPartage}
       class="der-param bloc-default gradiant-left ligne space"
@@ -124,6 +135,8 @@
         <p class="gris">Partager l’application avec d’autres.</p>
       </div>
     </div>
+
+    <!-- Lien vers la politique de confidentialité de l'appli -->
     <a href="/politique" style="text-decoration:none; color:white;">
       <div class="der-param bloc-default gradiant-left ligne space">
         <div
@@ -142,10 +155,14 @@
       </div>
     </a>
     <div class="fin-page"></div>
+    <div style="height: 10vh;"></div>
   </div>
 {/await}
+
+<!-- Menu -->
 <Navbar />
 
+<!-- CSS de la page paramètres -->
 <style>
   .gris {
     color: #c3c7c7;

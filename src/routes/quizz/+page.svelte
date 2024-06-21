@@ -1,3 +1,5 @@
+<!-- Page type de quizz a texte a trou -->
+
 <script>
   import Navbar from "../../components/navbar.svelte";
 

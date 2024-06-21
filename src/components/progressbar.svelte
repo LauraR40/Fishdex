@@ -4,10 +4,12 @@
   const percent = Math.round((val / total) * 100);
 </script>
 
+<!-- Barre de progression  -->
 <div class="progress-wrapper">
   <div class="progress" style="width: {percent}%;"></div>
 </div>
 
+<!-- CSS de la barre de progression  -->
 <style>
   .progress-wrapper {
     border: 3px solid black;

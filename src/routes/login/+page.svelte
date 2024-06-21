@@ -9,6 +9,7 @@
   }
 </script>
 
+<!-- Page de connexion -->
 <section>
   <h1>Login</h1>
   <form on:submit|preventDefault={handleForm}>
@@ -20,6 +21,7 @@
   <a href="/signup">Signup</a>
 </section>
 
+<!-- CSS de la page de connexion -->
 <style>
   form {
     display: flex;
