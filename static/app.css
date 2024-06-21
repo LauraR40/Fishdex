@@ -234,14 +234,14 @@ dialog[open] {
   width: 90vw;
   border-radius: 20px;
   border: solid;
-  border-color: #c2c1f1;
+  border-color: white;
   border-width: 5px;
 }
 
 .gradiant-right {
   background-image: radial-gradient(
     farthest-corner at 40px 40px,
-    #4441d5 10%,
+    #322b79 10%,
     #9f9de9 100%
   );
 }
@@ -264,7 +264,7 @@ dialog[open] {
 }
 
 .fond-couvert {
-  background-color: #504eba;
+  background-color: #322b79;
   width: 80vw;
   height: 12vh;
   display: flex;
@@ -300,7 +300,7 @@ dialog[open] {
   background-image: radial-gradient(
     farthest-side at 5px 20px,
     #9f9de9 20%,
-    #4441d5 150%
+    #322b79 150%
   );
 }
 

@@ -73,8 +73,7 @@
       </a>
     </div>
 
-    <!-- TODO Poissons attrapés zone -->
-    <!-- Ajouter barre-->
+    <!-- Poissons attrapés zone -->
     <div class="zone-pro bloc-default gradiant-right">
       <div style="padding-bottom: 0;" class="pad">
         <h2 class="titre">Zone {zones[data.profile.current_zone].nom}</h2>
@@ -93,8 +92,7 @@
       </div>
     </div>
 
-    <!-- TODO Conseils du capitaine -->
-    <!-- Corriger fautes -->
+    <!-- Conseils du capitaine -->
     <div
       style="position: relative; height:34vh;"
       class="conseil bloc-default gradiant-left"

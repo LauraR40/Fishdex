@@ -11,8 +11,7 @@
       alt="Avatar"
       src={getAvatarUrl(user.avatar_id + ".png")}
     />
-    <!--TODO: Il faut trouver un moyen pour que le lien de l'image sois toujours valable -->
-    <h4 style="margin-left: 10px;">{user.nom}</h4>
+    <h4 style="margin-left: 10px; text-transform: capitalize;">{user.nom}</h4>
     <div>
       <div class="poly">
         <span style="color: black; margin-left: 26%; font-weight: 700;"
@@ -23,6 +22,6 @@
   </div>
   <div class="ligne">
     <img class="rond" alt="Point de couleur" src={rondvert} />
-    <p>Voir les récompenses de niveau →</p>
+    <p style="font-weight: 700;">Voir les récompenses de niveau →</p>
   </div>
 </div>
