@@ -111,4 +111,68 @@
       opacity: 1;
     }
   }
+
+  /* modal perm appareil photo*/
+
+  dialog {
+    max-width: 80vw;
+    border-radius: 1.6em;
+    border: none;
+    padding: 0;
+    text-align: center;
+  }
+  dialog::backdrop {
+    background: rgba(29, 42, 86, 0.6);
+  }
+  dialog > div {
+    padding: 1em;
+  }
+  dialog[open] {
+    animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  #close-modal {
+    background-color: #4665a9;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-family:
+      "Inter var",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      system-ui,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji";
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 0.75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6b7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: 0.2s;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+  }
+
+  #ligne {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 </style>

@@ -76,7 +76,7 @@
         <img src="#" alt="" />
       </div> 
       
-      TODO: ajouter des illustrations pour chaque poisson-->
+      TODO: ajouter des illustrations pour chaque poisson dans partie galerie-->
 
       <div
         class="description"

@@ -30,8 +30,6 @@
 <Navbar />
 
 <style>
-  /* TODO faire le design */
-
   .collection {
     border: 1px solid;
     padding: 12px;

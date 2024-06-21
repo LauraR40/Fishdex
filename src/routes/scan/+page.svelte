@@ -79,3 +79,33 @@ justify-content: center;
     <small id="modal-litleText"> Pour lire un QR code</small>
   </h2>
 </Modal>
+
+<style>
+  .bod {
+    margin: 0;
+    display: flex;
+    place-items: center;
+  }
+
+  .row {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    flex-direction: column;
+    place-items: center;
+    display: flex;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #reader {
+    width: 500px;
+    width: 80vw !important;
+  }
+</style>

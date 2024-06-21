@@ -118,4 +118,31 @@
     text-transform: uppercase;
     text-align: center;
   }
+
+  .fin-page {
+    height: 100px;
+    background-color: #c0d6ff;
+  }
+
+  .actual-zone {
+    height: 380px;
+  }
+
+  .fond-couvert {
+    background-color: #322b79;
+    width: 80vw;
+    height: 12vh;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .fond-couvert img {
+    background-color: white;
+    border-radius: 23px;
+    width: 18vw;
+    height: 9vh;
+    box-shadow: 1px 1px 5px #3a3a3a;
+  }
 </style>

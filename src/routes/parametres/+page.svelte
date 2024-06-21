@@ -155,4 +155,12 @@
     margin: 0;
     user-select: none;
   }
+
+  .der-param {
+    height: 120px;
+  }
+
+  .space {
+    justify-content: space-evenly;
+  }
 </style>

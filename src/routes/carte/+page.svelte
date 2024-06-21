@@ -4,7 +4,7 @@
 
 <div
   style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
-  class="disposition-carte pos2"
+  class="disposition-carte"
 >
   <div class="der-carte bloc-default gradiant-left">
     <div class="ligne pad">
@@ -23,3 +23,22 @@
   </div>
 </div>
 <Navbar />
+
+<style>
+  .der-carte {
+    height: 424px;
+    margin-top: 100px;
+  }
+
+  .disposition-carte {
+    margin: 0;
+    justify-content: center;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    overflow: scroll;
+    padding: 20px;
+    background-image: url("src/lib/assets/Vagues.svg");
+    height: 95vh;
+  }
+</style>

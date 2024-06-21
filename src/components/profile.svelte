@@ -25,3 +25,11 @@
     <p style="font-weight: 700;">Voir les récompenses de niveau →</p>
   </div>
 </div>
+
+<style>
+  .rond {
+    width: 4vw;
+    padding-left: 27px;
+    margin-right: 17px;
+  }
+</style>
