@@ -14,15 +14,40 @@
 </script>
 
 <!-- Page de connexion -->
-<section>
-  <h1>SignIn</h1>
-  <form on:submit|preventDefault={handleForm}>
-    <input type="email" name="email" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <input type="text" name="name" placeholder="Anonyme" required />
-    <button type="submit">SignIn</button>
-  </form>
-</section>
+<div
+  style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; width: 100vw; gap:0;"
+  class="disposition"
+>
+  <div class="glass-cadre">
+    <section>
+      <h1>Créer mon compte</h1>
+      <form on:submit|preventDefault={handleForm}>
+        <input
+          class="input-log"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          class="input-log"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          class="input-log"
+          type="text"
+          name="name"
+          placeholder="Anonyme"
+          required
+        />
+        <button class="submit" type="submit">SignIn</button>
+      </form>
+    </section>
+  </div>
+</div>
 
 <!--  CSS de la page de connexion -->
 <style>
@@ -30,11 +55,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-  input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
   }
   button {
     padding: 0.5rem;

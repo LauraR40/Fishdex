@@ -24,15 +24,22 @@
       <h2 style="color:white; text-align: center;">Connexion</h2>
       <br />
       <form on:submit|preventDefault={handleForm}>
-        <input type="email" name="email" placeholder="Email" required />
         <input
+          class="input-log"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          class="input-log"
           style="margin-bottom: 10px;"
           type="password"
           name="password"
           placeholder="Mot de passe"
           required
         />
-        <button class="submit" type="submit">Me connecter</button>
+        <button class="submit" type="submit">Continuer</button>
       </form>
       <br />
       <a
@@ -51,14 +58,10 @@
     flex-direction: column;
     gap: 1rem;
   }
-  input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-  }
+
   button {
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 0.25rem;
     background-color: #007bff;
     color: white;
@@ -69,28 +72,9 @@
   }
 
   .submit {
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: rgba(168, 192, 236, 0);
     border-color: white;
-  }
-
-  .glass-cadre {
-    /* From https://css.glass */
-    background: rgba(38, 88, 179, 0.46);
-    border-radius: 30px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.3px);
-    -webkit-backdrop-filter: blur(9.3px);
-    border: 1px solid rgba(38, 88, 179, 0.4);
-
-    width: 80vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  input {
-    background-color: white;
-    border-radius: 5px;
+    font-size: 15px;
   }
 </style>

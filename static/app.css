@@ -174,3 +174,38 @@ video {
     padding: 0.75rem 1.5rem;
   }
 }
+
+.glass-cadre {
+  background: rgba(38, 88, 179, 0.46);
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  border: 1px solid rgba(38, 88, 179, 0.4);
+
+  width: 80vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit {
+  border-radius: 8px;
+  background-color: rgba(168, 192, 236, 0);
+  border-color: white;
+  font-size: 15px;
+}
+
+.input-log {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  width: 130%;
+  margin-left: -19%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  color: black;
+}
