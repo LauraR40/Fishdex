@@ -5,6 +5,7 @@
     checkConnected,
     updateProfile,
     profileStore,
+    logOut,
   } from "$lib/database";
   import Switch from "$components/switch.svelte";
 
@@ -154,6 +155,22 @@
         </div>
       </div>
     </a>
+
+    <!-- Déconnexion -->
+    <div
+      on:click={async () => {
+        await logOut();
+        location.href = "/";
+      }}
+      class="der-param bloc-default gradiant-left ligne space deconnexion"
+    >
+      <img alt="partage" src="src/lib/assets/icons/logout.svg" />
+      <div>
+        <p>Déconnexion</p>
+        <p class="gris">Appuyer ici pour vous déconnecter</p>
+      </div>
+    </div>
+
     <div class="fin-page"></div>
     <div style="height: 10vh;"></div>
   </div>
@@ -179,5 +196,13 @@
 
   .space {
     justify-content: space-evenly;
+  }
+
+  .deconnexion {
+    background-image: radial-gradient(
+      farthest-side at 5px 20px,
+      #e99d9d 20%,
+      #792b2b 150%
+    );
   }
 </style>
