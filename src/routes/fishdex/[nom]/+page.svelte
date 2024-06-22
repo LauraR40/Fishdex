@@ -7,7 +7,9 @@
 </script>
 
 <!-- Page poisson rencontré -->
-{#await checkConnected() then}
+{#await checkConnected()}
+  <p>Chargement..</p>
+{:then}
   <div
     style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
     class="disposition"
