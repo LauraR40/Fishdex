@@ -42,9 +42,9 @@
         <Poisson {poisson} />
       {/each}
     </div>
+    <div style="height: 5vh;"></div>
   </div>
 {/await}
-
 <!-- Menu  -->
 <Navbar />
 
@@ -70,7 +70,6 @@
     flex-direction: column;
     gap: 2vh;
 
-    height: 95vh;
     padding: 20px;
     overflow: scroll;
     background-color: #c0d6ff;
