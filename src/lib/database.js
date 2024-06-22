@@ -78,6 +78,18 @@ export async function getAmountOfFishInZone(zone) {
   return count;
 }
 
+export async function getAllFish() {
+  let { data, error } = await supabase
+    .from("poissons")
+    .select("*")
+    .order("nom", { ascending: true });
+  if (error) {
+    console.error(error);
+    return [];
+  }
+  return data;
+}
+
 /**
  * Crée un compte utilisateur
  * @param {*} email // email de l'utilisateur
