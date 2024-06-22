@@ -2,6 +2,7 @@
   import rondvert from "$lib/assets/rondvert.svg";
   import { getAvatarUrl } from "$lib/database";
   export let user;
+  export let showReward = true;
 </script>
 
 <!-- Bloc de profil -->
@@ -24,11 +25,17 @@
       </div>
     </div>
   </div>
-  <!-- Lien vers la page récompense -->
-  <div class="ligne">
-    <img class="rond" alt="Point de couleur" src={rondvert} />
-    <p style="font-weight: 700;">Voir les récompenses de niveau →</p>
-  </div>
+  {#if showReward}
+    <!-- Lien vers la page récompense -->
+    <div class="ligne">
+      <img class="rond" alt="Point de couleur" src={rondvert} />
+      <p>
+        <a style="font-weight: 700;" href="/rewards"
+          >Voir les récompenses de niveau →</a
+        >
+      </p>
+    </div>
+  {/if}
 </div>
 
 <!-- CSS du bloc de profil -->
@@ -37,5 +44,12 @@
     width: 4vw;
     padding-left: 27px;
     margin-right: 17px;
+  }
+
+  a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: white;
   }
 </style>

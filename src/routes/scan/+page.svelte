@@ -1,7 +1,7 @@
 <script>
   import { Html5Qrcode } from "html5-qrcode";
   import { onMount, onDestroy } from "svelte";
-  import Modal from "$components/modal.svelte";
+  import Modal from "$components/cameraModal.svelte";
   import Navbar from "../../components/navbar.svelte";
   import { checkConnected } from "$lib/database";
   let showModal = true;

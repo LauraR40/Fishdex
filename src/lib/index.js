@@ -8,6 +8,10 @@ export const zones = {
     nom: "Des Profondeurs",
     url: "src/lib/assets/cartes/ZoneDesProfondeurs.png.png",
   },
+  des_nurserie: {
+    nom: "Nurserie",
+    url: "src/lib/assets/cartes/Nurserie.jpg",
+  },
   des_embruns: {
     nom: "Des Embruns",
     url: "src/lib/assets/cartes/CarteEmbruns.png",

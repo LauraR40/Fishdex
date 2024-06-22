@@ -67,7 +67,7 @@
     width: var(--size);
     height: var(--size);
     position: absolute;
-    transform: translateY(-50%);
+    transform: translate(4px, -50%);
     background-image: url("$icons/PoissonIcon.png");
   }
   .icon.parametres {

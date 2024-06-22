@@ -9,12 +9,7 @@ export const supabase = createClient(
   PUBLIC_SUPABASE_URL,
   PUBLIC_SUPABASE_ANON_KEY
 );
-import { persist, createSessionStorage } from "@macfja/svelte-persistent-store";
-export const profileStore = persist(
-  writable(undefined),
-  createSessionStorage(),
-  "profile"
-);
+export const profileStore = writable(null);
 
 function getFromBucket(bucketName, path) {
   const { data } = supabase.storage.from(bucketName).getPublicUrl(path);
@@ -27,6 +22,10 @@ export function getPhotoUrl(name) {
 
 export function getAvatarUrl(name) {
   return getFromBucket("Avatars", name);
+}
+
+export function getRewardUrl(num) {
+  return getFromBucket("rewards", "reward" + num + ".png");
 }
 
 export async function getFish(nom) {
@@ -64,10 +63,23 @@ export async function getFish(nom) {
 
 function ajoutPoints(profile, zone) {
   const pts = profile.poissons.length == 1 ? 2 : 1;
-  return {
+  const totalPts = profile.points + pts;
+  const updater = {
     current_zone: zone,
-    points: profile.points + pts,
+    points: totalPts,
   };
+
+  if ((totalPts / 2) % 1 == 0) {
+    const rewards = profile.rewards;
+    rewards.push({
+      id: totalPts / 2,
+      open: false,
+    });
+
+    updater.rewards = rewards;
+  }
+
+  return updater;
 }
 
 export async function getAmountOfFishInZone(zone) {

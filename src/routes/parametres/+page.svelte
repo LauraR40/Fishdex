@@ -70,7 +70,7 @@
           >{Math.trunc($profileStore.points / 2)}</span
         >
       </div>
-      <div>
+      <div on:click={() => (location.href = "/rewards")}>
         <p>Vos récompenses</p>
         <p class="gris">Des fonds d’écran</p>
       </div>
