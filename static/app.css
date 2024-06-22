@@ -184,10 +184,10 @@ video {
   border: 1px solid rgba(38, 88, 179, 0.4);
 
   width: 80vw;
-  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
 }
 
 .submit {
@@ -202,10 +202,16 @@ video {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   width: 130%;
-  margin-left: -19%;
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: white;
   border-radius: 8px;
   color: black;
+}
+
+.disposition.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
