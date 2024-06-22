@@ -77,14 +77,14 @@
   .glass-cadre {
     /* From https://css.glass */
     background: rgba(38, 88, 179, 0.46);
-    border-radius: 16px;
+    border-radius: 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(9.3px);
     -webkit-backdrop-filter: blur(9.3px);
     border: 1px solid rgba(38, 88, 179, 0.4);
 
     width: 80vw;
-    height: 50vh;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
