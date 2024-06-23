@@ -140,7 +140,6 @@
     grid-template-columns: repeat(3, 27vw);
     gap: 10px;
     width: 90vw;
-    height: 27vw;
     margin: 0 auto;
 
     align-items: center;
@@ -148,8 +147,8 @@
   }
 
   .Illustrations img {
-    width: 100%;
-    height: 100%;
+    width: 27vw;
+    height: 27vw;
     object-fit: fill;
 
     border: 2px solid #76a4f9;
