@@ -15,7 +15,7 @@
 
 <!-- Page de connexion -->
 <div
-  style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; width: 100vw; gap:0;"
+  style=" background-repeat: no-repeat; background-size: 28rem; background-position: center; width: 100vw; gap:0;"
   class="disposition flex"
 >
   <h1>La Quête de l'Aquarium</h1>
@@ -101,5 +101,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .disposition {
+    background-image: url("$lib/assets/Vagues.svg");
   }
 </style>

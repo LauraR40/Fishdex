@@ -4,6 +4,8 @@
   import Gift from "$components/gift.svelte";
   import Reward from "$components/reward.svelte";
 
+  import gift from "$lib/assets/gift1.svg";
+
   import { checkConnected, profileStore, updateProfile } from "$lib/database";
   import { get } from "svelte/store";
 
@@ -28,12 +30,7 @@
           <h2 class="titre">Il n'y a aucune récompense à ouvrir</h2>
         </div>
         <div class="gift">
-          <Gift
-            imgSrc="/src/lib/assets/gift1.svg"
-            size="44"
-            openable={false}
-            open={true}
-          />
+          <Gift imgSrc={gift} size="44" openable={false} open={true} />
         </div>
       {:else}
         {#each $profileStore.rewards as reward, index}

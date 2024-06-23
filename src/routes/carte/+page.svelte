@@ -1,10 +1,11 @@
 <script>
   import Navbar from "../../components/navbar.svelte";
+  import total from "$lib/assets/cartes/total.png";
 </script>
 
 <!-- Fond avec vagues de la page carte  -->
 <div
-  style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
+  style="background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
   class="disposition-carte"
 >
   <!-- Bloc avec carte  -->
@@ -20,7 +21,7 @@
         height: 36vh;
         border-radius: 20px;"
         alt="carteAqua"
-        src="src/lib/assets/cartes/carteAqua.png"
+        src={total}
       />
     </div>
   </div>
@@ -43,7 +44,7 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     overflow: scroll;
     padding: 20px;
-    background-image: url("src/lib/assets/Vagues.svg");
+    background-image: url("$lib/assets/Vagues.svg");
     height: 95vh;
   }
 </style>

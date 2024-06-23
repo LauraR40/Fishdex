@@ -9,6 +9,13 @@
   } from "$lib/database";
   import Switch from "$components/switch.svelte";
 
+  // imports des icones
+  import vibreur from "$lib/assets/icons/iconVibre.svg";
+  import sonnerie from "$lib/assets/icons/Cloche.svg";
+  import partage from "$lib/assets/icons/partage.svg";
+  import info from "$lib/assets/icons/info.svg";
+  import logout from "$lib/assets/icons/logout.svg";
+
   async function changeAvatar() {
     // récup nombre aléatoire
     const numAlea = Math.floor(Math.random() * 9) + 1; // nb random [1,9]
@@ -83,7 +90,7 @@
     display: flex;
     justify-content: center;"
       >
-        <img alt="icone vibre" src="src/lib/assets/icons/iconVibre.svg" />
+        <img alt="icone vibre" src={vibreur} />
       </div>
       <div style="margin-left: 2vw;">
         <p>Vibreur</p>
@@ -104,7 +111,7 @@
     display: flex;
     justify-content: center;"
       >
-        <img alt="icone cloche" src="src/lib/assets/icons/Cloche.svg" />
+        <img alt="icone cloche" src={sonnerie} />
       </div>
       <div style="margin-left: 2vw;">
         <p>Sonnerie</p>
@@ -130,7 +137,7 @@
       on:click={openPartage}
       class="der-param bloc-default gradiant-left ligne space"
     >
-      <img alt="partage" src="src/lib/assets/icons/partage.svg" />
+      <img alt="partage" src={partage} />
       <div>
         <p>Partager</p>
         <p class="gris">Partager l’application avec d’autres.</p>
@@ -145,7 +152,7 @@
     display: flex;
     justify-content: center;"
         >
-          <img alt="info" src="src/lib/assets/icons/info.svg" />
+          <img alt="info" src={info} />
         </div>
         <div
           style="margin-left: 2vw; margin-right: 2vw; display:flex; justify-content: center; flex-direction: column;"
@@ -164,7 +171,7 @@
       }}
       class="der-param bloc-default gradiant-left ligne space deconnexion"
     >
-      <img alt="partage" src="src/lib/assets/icons/logout.svg" />
+      <img alt="partage" src={logout} />
       <div>
         <p>Déconnexion</p>
         <p class="gris">Appuyer ici pour vous déconnecter</p>

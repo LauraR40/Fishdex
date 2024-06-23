@@ -1,6 +1,7 @@
 <script>
   import Navbar from "../components/navbar.svelte";
   import Profile from "../components/profile.svelte";
+  import conseil from "$lib/assets/conseil.svg";
   import { zones } from "$lib/index.js";
   import { getAmountOfFishInZone, checkConnected } from "$lib/database.js";
   import Progressbar from "../components/progressbar.svelte";
@@ -104,7 +105,7 @@
     >
       <div class="pad">
         <h2 class="titre">Les Conseils du capitaine Trégastel !</h2>
-        <img class="pad" alt="conseil" src="src/lib/assets/conseil.svg" />
+        <img class="pad" alt="conseil" src={conseil} />
       </div>
       <img
         style="position:absolute; bottom:0; left:50%; transform:translateX(-50%);"

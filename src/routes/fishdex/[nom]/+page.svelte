@@ -4,6 +4,8 @@
   import Profile from "$components/profile.svelte";
   import { zones } from "$lib/index.js";
   import { profileStore, checkConnected } from "$lib/database";
+
+  import ampoule from "$lib/assets/ampoule.svg";
 </script>
 
 <!-- Page poisson rencontré -->
@@ -11,7 +13,7 @@
   <p>Chargement..</p>
 {:then}
   <div
-    style="background-image: url('/src/lib/assets/Vagues.svg'); background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
+    style="background-repeat: no-repeat; background-size: 28rem; background-position: center; gap:0;"
     class="disposition"
   >
     <div
@@ -41,11 +43,7 @@
         style="justify-content: center; display: flex; align-items: center;"
         class="der-desc1 bloc-default gradiant-left"
       >
-        <img
-          style="margin-right: 20px;"
-          alt="ampoule"
-          src="../src/lib/assets/ampoule.svg"
-        />
+        <img style="margin-right: 20px;" alt="ampoule" src={ampoule} />
         <a
           style="color:white; text-decoration:none; font-weight:700;"
           href="/fishdex/{data.id}/desc">En savoir plus sur le {data.nom}</a
@@ -77,5 +75,9 @@
 
   .der-desc1 {
     height: 70px;
+  }
+
+  .disposition {
+    background-image: url("$lib/assets/Vagues.svg");
   }
 </style>
