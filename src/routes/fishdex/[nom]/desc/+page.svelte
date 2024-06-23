@@ -77,6 +77,7 @@
         <p>{data.description}</p>
       </div>
     </div>
+    <div style="height: 15vh;"></div>
   </div>
 </div>
 
@@ -128,7 +129,6 @@
   #bloc-infos {
     background-color: white;
     width: 100vw;
-    height: 75vh;
     top: 20vh;
     color: black;
     margin-top: 5rem;
@@ -153,5 +153,9 @@
 
     border: 2px solid #76a4f9;
     border-radius: 8px;
+  }
+
+  .disposition {
+    height: auto !important;
   }
 </style>

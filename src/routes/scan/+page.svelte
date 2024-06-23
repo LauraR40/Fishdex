@@ -25,7 +25,7 @@
     }, 500);
   }
 
-  const qrconfig = { fps: 10, qrbox: { width: 250, height: 250 } };
+  const qrconfig = { fps: 10 };
   let qrcode = null;
 
   // Initialisation du scanner
