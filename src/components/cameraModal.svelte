@@ -12,6 +12,7 @@
 
       //fermer le bouton
       dialog.close();
+      location.reload();
     } catch (error) {
       changeModal();
     }
