@@ -1,3 +1,5 @@
+import { writable } from "svelte/store";
+
 // TODO : ajouter les cartes des zones et mettres les URLS
 export const zones = {
   des_marees: {
@@ -17,3 +19,14 @@ export const zones = {
     url: "src/lib/assets/cartes/CarteEmbruns.png",
   },
 };
+
+export const notifications = writable([]);
+
+export function showNotification(message, url, duration = 5000) {
+  const id = Date.now();
+  notifications.update((n) => [...n, { id, message, duration, url }]);
+
+  setTimeout(() => {
+    notifications.update((n) => n.filter((notif) => notif.id !== id));
+  }, duration);
+}

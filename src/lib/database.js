@@ -5,6 +5,8 @@ import {
 } from "$env/static/public";
 import { writable, get } from "svelte/store";
 import { browser } from "$app/environment";
+import { showNotification } from "$lib/index";
+
 export const supabase = createClient(
   PUBLIC_SUPABASE_URL,
   PUBLIC_SUPABASE_ANON_KEY
@@ -77,6 +79,12 @@ function ajoutPoints(profile, zone) {
     });
 
     updater.rewards = rewards;
+
+    showNotification(
+      "Une nouvelle récompense est disponible !",
+      "/rewards",
+      5000
+    );
   }
 
   return updater;
