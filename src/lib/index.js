@@ -1,6 +1,5 @@
 import { writable } from "svelte/store";
 
-// TODO : ajouter les cartes des zones et mettres les URLS
 export const zones = {
   des_marees: {
     nom: "Des Marées",
