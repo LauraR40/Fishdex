@@ -58,17 +58,15 @@
       </div>
       <br />
       <hr
-        style="margin-left: 7vw; margin-right: 7vw; background-color: #ABBBDA;"
+        style="margin-left: 4vw; margin-right: 4vw; background-color: #ABBBDA;"
       />
 
       <!-- 3 Photos du poisson -->
-      <!-- <div class="Illustrations">
-        <img src="#" alt="" />
-        <img src="#" alt="" />
-        <img src="#" alt="" />
-      </div> 
-      
-      TODO: ajouter des illustrations pour chaque poisson dans partie galerie-->
+      <div class="Illustrations">
+        <img src={data.photos[0]} alt="Illustration du {data.nom} 1" />
+        <img src={data.photos[1]} alt="Illustration du {data.nom} 2" />
+        <img src={data.photos[2]} alt="Illustration du {data.nom} 3" />
+      </div>
 
       <!-- Texte de description des caratéristiques du poisson -->
       <div
@@ -119,7 +117,6 @@
   #zone-pois {
     background-color: #21efb1;
     border-radius: 200px;
-    height: 3vh;
     /* justify-content: center; */
     display: flex;
     align-items: center;
@@ -136,5 +133,26 @@
     color: black;
     margin-top: 5rem;
     border-radius: 30px;
+  }
+
+  .Illustrations {
+    display: grid;
+    grid-template-columns: repeat(3, 27vw);
+    gap: 10px;
+    width: 90vw;
+    height: 27vw;
+    margin: 0 auto;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Illustrations img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+
+    border: 2px solid #76a4f9;
+    border-radius: 8px;
   }
 </style>
