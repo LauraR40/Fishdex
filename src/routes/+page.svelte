@@ -12,7 +12,8 @@
       (poisson) => poisson.zone === profile.current_zone
     ).length;
 
-    const derniersPoissons = profile.poissons.slice(-3) || [];
+    let derniersPoissons = profile.poissons.slice(-3) || [];
+    derniersPoissons = derniersPoissons.reverse();
 
     return {
       nombrePoissonsZone: await getAmountOfFishInZone(profile.current_zone),

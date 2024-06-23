@@ -43,6 +43,13 @@ export async function getFish(nom) {
     // récupération du lien de l'image associée
     obj.url = getPhotoUrl(nom);
 
+    // récupération des autres images associées
+    obj.photos = [
+      getPhotoUrl(nom + "-1"),
+      getPhotoUrl(nom + "-2"),
+      getPhotoUrl(nom + "-3"),
+    ];
+
     // Ajout du poisson dans le profil de l'utilisateur
     if (browser) {
       const profile = await checkConnected();
@@ -198,11 +205,9 @@ export async function checkConnected() {
     throw new Error("User not connected");
   }
   let profile = get(profileStore);
-  console.warn("profile", profile);
   if (!profile) {
     profile = await getProfile(user.id);
   }
-  console.warn(profile);
   return profile;
 }
 /**
