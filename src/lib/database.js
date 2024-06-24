@@ -55,11 +55,19 @@ export async function getFish(nom) {
       const profile = await checkConnected();
       const poissons = profile.poissons;
       if (poissons.filter((e) => e.id == nom).length == 0) {
-        poissons.push(obj);
+        poissons.push({ id: obj.id, url: obj.url, zone: obj.zone });
+
+        // mise à jour de la carte des zones
+        const zone = obj.zone.replace("des", "carte");
+        const zones = profile.zones.filter((z) => {
+          return z != zone;
+        });
+
         // Mise à jour du profil
         await updateProfile({
           poissons: poissons,
           ...ajoutPoints(profile, obj.zone),
+          zones: zones,
         });
       }
     }
