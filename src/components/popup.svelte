@@ -1,9 +1,12 @@
 <script>
   export let message = "";
   export let onClose;
-
+  /**
+   * Permet de fermer le popup
+   */
   function closePopUp() {
     if (onClose) {
+      // Callback qui s'effectue une fois le popup fermé
       onClose();
     }
   }

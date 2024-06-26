@@ -3,43 +3,46 @@
   export let showModal; // boolean
 
   let dialog; // HTMLDialogElement
-
+  /**
+   *
+   */
   async function onButtonClick() {
     try {
+      // On récupère le flux vidéo
       const promise = await navigator.mediaDevices.getUserMedia({
         video: true,
       });
 
-      //fermer le bouton
+      //fermer le modal
       dialog.close();
+      // On actualise la page pour être sur que la préférence est prise en compte
       location.reload();
     } catch (error) {
+      // Si il y a une erreur on modifie le modal et on affiche l'erreur
       changeModal();
     }
   }
-
+  /**
+   *
+   */
   function changeModal() {
     // modification du texte du modal
-
     const header = document.querySelector('[slot="header"]');
     if (!header) return;
     header.textContent =
       "Vous n'autorisez pas l'accès à la caméra, l'application ne peut pas fonctionner.";
-    // header.innerHTML = `
-    // Blablacar
-    // <br>
-    // <small id="modal-litleText">small</small>
-    // `
 
     // modification des boutons du modal
-
     const ligne = document.getElementById("ligne");
     if (!ligne) return;
-
+    // On supprime le bouton "OK"
     ligne.querySelector("button").remove();
     ligne.querySelector("a").textContent = "revenir en arrière";
   }
 
+  /**
+   * Vérification de la permission d'utiliser la caméra
+   */
   async function checkPerms() {
     const perms = await navigator.permissions.query({ name: "camera" });
     const state = perms?.state;
@@ -68,6 +71,7 @@
   if (browser) {
     checkPerms();
   }
+  // On affiche le modal si besoin et si il n'a pas été expressément fermé
   $: if (dialog && showModal) dialog.showModal();
 </script>
 

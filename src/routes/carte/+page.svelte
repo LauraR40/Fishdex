@@ -3,13 +3,27 @@
   import { imagesb64 } from "$lib/index";
   import { checkConnected, profileStore } from "$lib/database";
 
-  let caches = [];
-
+  // Liste des bouts de carte qui seront cachés
+  // par défaut tout est caché
+  let caches = [
+    "carte_embruns",
+    "carte_marees",
+    "carte_profondeurs",
+    "carte_nurserie",
+  ];
+  /**
+   * Récupération du profil et mise à jour des cartes cachés
+   */
   async function getData() {
     const profile = await checkConnected();
+    // profile.zones contient les cartes non débloqués par l'utilisateur
     caches = profile.zones;
   }
-
+  /**
+   * Retourne vrai si la carte `c` doit être caché
+   * Cette fonction est utiliser pour générer dynamiquement le svg de la carte complète
+   * @param {string} c le nom de la carte. ex : carte_marees
+   */
   function isCache(c) {
     return caches.includes(c) ? "cache" : "";
   }

@@ -1,12 +1,17 @@
 <!-- Page type de quizz a texte a trou -->
+<!-- Préparation pour futur version de l'application -->
 
 <script>
   import Navbar from "../../components/navbar.svelte";
 
   let answers = ["dolor", "scelerisque", "Nullam"];
-
+  /**
+   * Vérifie les réponses du texte à trou
+   */
   function verifier() {
+    // On récupère toutes les réponses
     const spans = [...document.querySelectorAll("input.answer")];
+    // pour chaque réponse on vérifie si c'est la bonne
     for (let i = 0; i < spans.length; i++) {
       const span = spans[i];
       span.classList.remove("wrong", "right");

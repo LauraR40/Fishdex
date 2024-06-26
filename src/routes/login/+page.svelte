@@ -1,10 +1,19 @@
 <script>
   import { logIn } from "$lib/database";
-
+  /**
+   * Utilise le formulaire pour connecter l'utilisateur
+   * @param form
+   *
+   * Si l'utilisateur est connecté alors retourne sur la page d'accueil
+   * Sinon affiche un popup d'erreur
+   */
   async function handleForm(form) {
+    // Récupération des valeurs du formulaire
     const email = form.target.email.value;
     const password = form.target.password.value;
+    // Tentative de connexion
     const isLogged = await logIn(email, password);
+    // Si connecté alors on redirige
     if (isLogged) {
       location.href = "/";
     }

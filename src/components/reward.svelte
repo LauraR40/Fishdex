@@ -1,22 +1,23 @@
 <script>
   import { onMount } from "svelte";
   import Modal from "$components/rewardModal.svelte";
+  import { getRewardUrl } from "$lib/database";
 
   export let rewardId = 1;
-
-  import { getRewardUrl } from "$lib/database";
 
   let showModal = false;
 
   onMount(async () => {});
 
+  //Affichage du modal de récompense (un fond d'écran)
   function openModal() {
     showModal = true;
   }
-
+  //Fermeture du modal de récompense
   function closeModal() {
     showModal = false;
   }
+  // Récupération de l'url de la récompense
   const rewardUrl = getRewardUrl(rewardId);
 </script>
 

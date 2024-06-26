@@ -3,27 +3,36 @@
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
 
+  // une notification c'est un message pendant une durée et une url de redirection
   export let message = "";
   export let duration = 5000;
   export let redirectUrl = "/";
 
   let visible = true;
+  // Animation lors de l'apparition et la désapparition
   let offset = tweened(-100, { duration: 300, easing: cubicOut });
   let translateX = 0;
   let startX;
   let startY;
   let isSwiping = false;
 
+  /**
+   * Au chargement de la notification
+   */
   onMount(() => {
+    // On place au début de l'animation
     offset.set(0);
 
+    // Au bout du timer on cache la notification
     const timeout = setTimeout(() => {
       hideNotification();
     }, duration);
 
+    // Quand on décharge la notification on clear le timer associé
     return () => clearTimeout(timeout);
   });
 
+  // Fonction pour cacher la notification
   function hideNotification() {
     offset.set(-100);
     setTimeout(() => {
@@ -31,33 +40,38 @@
     }, 300);
   }
 
+  // Fonction pour enregister le point de départ de la gestuelle (swipe)
   function handleTouchStart(event) {
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
     isSwiping = false;
   }
-
+  // Fonction pour gérer la gestuelle (swipe)
   function handleTouchMove(event) {
     const currentX = event.touches[0].clientX;
     const currentY = event.touches[0].clientY;
     const diffX = currentX - startX;
     const diffY = currentY - startY;
-
+    // On vérifie si la position n'est plus la même qu'au départ
     if (Math.abs(diffX) > Math.abs(diffY)) {
+      // Cela veut dire qu'on swipe
+      // On enregistre le delta de position
       isSwiping = true;
       translateX = diffX;
     }
   }
-
+  // Lorsqu'on relache la notification
   function handleTouchEnd() {
     if (isSwiping) {
       if (Math.abs(translateX) > 100) {
+        // Si c'était un swipe et que le mouvement était assez grand
+        // alors on cache la notification
         hideNotification();
       } else {
-        translateX = 0; // Reset position if not swiped enough
+        translateX = 0; // Sinon on reset le delta car ce n'était pas assez grand
       }
     } else {
-      // If not swiping, treat it as a click and redirect
+      // Si c'était un simple appuie alors on redirige sur l'url de redirection
       location.href = redirectUrl;
     }
   }

@@ -16,18 +16,28 @@
   import info from "$lib/assets/icons/info.svg";
   import logout from "$lib/assets/icons/logout.svg";
 
+  /**
+   * Modification de l'avatar
+   * Récupère un nouvel avatar aléatoirement
+   */
   async function changeAvatar() {
-    // récup nombre aléatoire
+    // Génération d'un nombre aléatoire
     const numAlea = Math.floor(Math.random() * 5) + 1; // nb random [1,9]
-    // construire nom avatar
+    // Construction du nom de l'avatar
     const nomAvatar = `${numAlea}.png`; // ex : 1.png
     // Récupération avatar URL
     const avatarUrl = getAvatarUrl(nomAvatar);
 
-    // mettre à jour le profileStore
+    // Mise à jour le profileStore
     await updateProfile({ avatar_id: numAlea });
   }
 
+  /**
+   * Affichage de l'écran de partage natif des mobiles
+   * Permet de partager le site à d'autres
+   *
+   * https://developer.mozilla.org/fr/docs/Web/API/Navigator/share
+   */
   async function openPartage() {
     const data = {
       title: "AquaDev",

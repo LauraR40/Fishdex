@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <!-- Barre de menu -->
 <nav>
   <!-- Lien vers la page d'accueil  -->

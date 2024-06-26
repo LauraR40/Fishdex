@@ -6,16 +6,24 @@
   import { getAmountOfFishInZone, checkConnected } from "$lib/database.js";
   import Progressbar from "../components/progressbar.svelte";
 
+  /**
+   * Récupère les données de l'utilisateur connecté
+   * Et on les travaille pour les afficher sur la page d'accueil
+   */
   async function fetchData() {
+    // On vérifie si l'utilisateur est connecté
     const profile = await checkConnected();
 
+    // On récupère le nombre de poissons attrapés dans la zone actuelle
     const nombrePoissonsAttrapésZone = profile.poissons.filter(
       (poisson) => poisson.zone === profile.current_zone
     ).length;
 
+    // On récupère les 3 derniers poissons attrapés
     let derniersPoissons = profile.poissons.slice(-3) || [];
+    // le dernier poisson en premier dans la liste
     derniersPoissons = derniersPoissons.reverse();
-
+    // Retourne les données pour peupler la vue
     return {
       nombrePoissonsZone: await getAmountOfFishInZone(profile.current_zone),
       nombrePoissonsAttrapésZone: nombrePoissonsAttrapésZone,

@@ -2,6 +2,7 @@
   import { popups, hidePopUp } from "$lib/index";
   import PopUp from "$components/popup.svelte";
 
+  //Gestion de la fermeture d'un popup
   function closePopUp(id) {
     hidePopUp(id);
   }

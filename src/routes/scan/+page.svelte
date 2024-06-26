@@ -4,9 +4,23 @@
   import Modal from "$components/cameraModal.svelte";
   import Navbar from "../../components/navbar.svelte";
   import { checkConnected } from "$lib/database";
+
+  // Initialisation des variables de la page
   let showModal = true;
   let audioPlayer = null;
 
+  /**
+   * Fonction exécutée lorsqu'on trouve un QRCode
+   * @param {string} texte le texte du QRCode
+   * @param {object} scanner l'object du scanner de QrCode
+   * @param {object} options les options de l'utilisateur
+   *
+   * Si les options sont activées :
+   * - Joue un son
+   * - Fait vibrer le téléphone
+   *
+   * Redirige l'utilisateur vers la page `/fishdex/<texte>`
+   */
   function qrCodeScanne(texte, scanner, options) {
     if (scanner.isScanning) {
       scanner.stop();
@@ -25,22 +39,32 @@
     }, 500);
   }
 
+  // Initialisation du scanner de QRCode
+  // Utilisation de : https://github.com/mebjas/html5-qrcode
   const qrconfig = { fps: 10 };
   let qrcode = null;
 
-  // Initialisation du scanner
+  // Lorsque la page est chargée
   onMount(async () => {
+    // On vérifie que l'utilisateur est connecté
     const profile = await checkConnected();
+    // On prépare le son
     audioPlayer = new Audio("/sons/camera.mp3");
+    // On prépare le scanner
     qrcode = new Html5Qrcode("reader");
+
+    // On demande la permission d'utiliser la caméra
+    // On commence à scanner uniquement si la permission est donnée
     const perms = await navigator.permissions.query({ name: "camera" });
     const state = perms?.state;
     if (state == "granted")
+      // par défaut on utilise la caméra arrière
       qrcode.start({ facingMode: "environment" }, qrconfig, (o) => {
         qrCodeScanne(o, qrcode, { son: profile.son, vibreur: profile.vibreur });
       });
   });
 
+  // Lorsque la page est déchargée on stoppe le scanner pour ne pas perdre de ressources
   onDestroy(async () => {
     if (!qrcode) return;
     await qrcode.stop();

@@ -7,6 +7,13 @@
   import { checkConnected, profileStore, updateProfile } from "$lib/database";
   import { get } from "svelte/store";
 
+  /**
+   * Mise à jour du profil utilisateur
+   * Indique que la récompense X a été ouverte
+   * @param {object} reward
+   *
+   * Provoque le rechargement de la page pour mettre à jour le profileStore
+   */
   async function updateReward(reward) {
     reward.open = true;
     const rewards = get(profileStore).rewards;

@@ -1,6 +1,7 @@
 <script>
   export let val = 0;
   export let total = 100;
+  // Calcul du pourcentage en fonction de la valeur et du total
   const percent = Math.round((val / total) * 100);
 </script>
 

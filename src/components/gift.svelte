@@ -1,10 +1,17 @@
 <script>
+  // Les différents options du <Gift />
   export let open = false;
   export let size = "20";
   export let openable = true;
+  // une callback pour effectuer une action après ouverture du cadeau
   export let onOpenGift = () => {};
   export let even = false;
 
+  /**
+   * Ouverture de la récompense
+   * S'ouvre uniquement si elle n'a pas déjà été ouverte
+   * Si openable est false alors on ne peut pas l'ouvrir
+   */
   function openGift() {
     if (openable && !open) {
       open = true;
@@ -12,6 +19,7 @@
     }
   }
 
+  // Gestion de la taille de la récompense
   size = size + "vw";
 </script>
 

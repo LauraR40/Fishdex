@@ -4,19 +4,24 @@
   export let imageUrl;
   export let rewardName = "Récompense";
 
+  //Fermeture du modal
+  // Appel la callback onClose
   function handleClose() {
     if (onClose) {
       onClose();
     }
   }
-
+  //Téléchargement de l'image dans les fichiers du mobile
   async function downloadImage() {
+    // Récupération de l'image depuis supabase
     const blob = await fetch(imageUrl).then((r) => r.blob());
+    // Création d'un objet url avec un <a> pour permettre le téléchargement
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
     a.download = rewardName;
     a.click();
+    // Nettoyage pour optimiser
     URL.revokeObjectURL(url);
     a.remove();
   }
