@@ -6,7 +6,8 @@
 		"dev": "vite dev",
 		"net": "vite dev --host",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"host" : "rm -rf ./build/ && npm run build && pm2 restart aquadev"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
