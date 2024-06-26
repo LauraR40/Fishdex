@@ -1,7 +1,8 @@
-
 # AquaDev
 
-DESCRIPTION
+Une application pour découvrir les poissons de l'aquarium de Trégastel.
+
+Prenez en photo les QR codes pour découvrir de nombreuses espèces aux particularités inhabituelles et gagnez des récompenses.
 
 ## Lancer l'instance de DEV
 
@@ -21,32 +22,33 @@ Voici ce qu'il vous faut :
 
 L'installation est simple, suivez simplement ces commandes:
 
-1. *Récupération du projet sur git*
+1. _Récupération du projet sur git_
 
-    ```bash
-    git clone https://github.com/LauraR40/Fishdex aquadev
-    ```
+   ```bash
+   git clone https://github.com/LauraR40/Fishdex aquadev
+   ```
 
-2. *Installation des dépendances*
+2. _Installation des dépendances_
 
    ```bash
    cd aquadev
    npm -i
    ```
 
-3. *Lancer le serveur*
+3. _Lancer le serveur_
    On peut lancer le serveur de plusieurs façons :
+
    - en local (inaccessible autre part que sur la machine)
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
    - sur le réseau courant (accessible depuis tout équipement connecté au même réseau)
 
-    ```bash
-    npm run net
-    ```
+   ```bash
+   npm run net
+   ```
 
 ## Deployer
 
@@ -91,9 +93,9 @@ Nous allons utiliser [PM2](https://pm2.keymetrics.io/) qui est un service de mon
 
 1. On se rend dans le dossier du projet
 
-    ```bash
-    cd aquadev
-    ```
+   ```bash
+   cd aquadev
+   ```
 
 2. On build pour la première fois
 
@@ -107,7 +109,8 @@ Nous allons utiliser [PM2](https://pm2.keymetrics.io/) qui est un service de mon
    pm2 start --name "aquadev" "HOST='localhost' PORT='9000' node ./build"
    ```
 
-    pm2 va s'occuper d'enregistrer les informations du serveur et d'en faire un service redémarrable
+   pm2 va s'occuper d'enregistrer les informations du serveur et d'en faire un service redémarrable
+
 4. On sauvegarde la configuration de pm2 pour que le serveur se redémarre automatiquement
 
    ```bash
@@ -132,11 +135,15 @@ Pour créer ce projet nous avons utilisé :
 
 ## Auteurs
 
-### Développeurs
+### Développement
 
-- Développeuse principale : **Laura Rocheteau** [github](https://github.com/LauraR40)
-- Aide et hébergement : **Iziram** [github](https://github.com/Iziram)
+- Développeuse : **Laura Rocheteau** [github](https://github.com/LauraR40)
+- Hébergement : **Iziram** [github](https://github.com/Iziram)
 
-### Design — UI — UX
+### Design — UX / UI et communication
 
-- [role] : **NOM / pseudo**
+- UI : **COPAU Lenny**
+- Communication : **LE BRUN Vincent**
+- UX : **LE GALL Emrys**
+- Dessin : **NOUVEL Soanne**
+- Stratégie : **SALAND Paul**
