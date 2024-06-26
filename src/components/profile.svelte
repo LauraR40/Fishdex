@@ -10,7 +10,7 @@
   <div class="ligne">
     <!-- Avatar de l'utilisateur -->
     <img
-      style="margin-left: 20px;"
+      style="margin-left: 20px; max-width: 20vw;"
       alt="Avatar"
       src={getAvatarUrl(user.avatar_id + ".png")}
     />

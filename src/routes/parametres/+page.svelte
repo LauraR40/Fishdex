@@ -18,7 +18,7 @@
 
   async function changeAvatar() {
     // récup nombre aléatoire
-    const numAlea = Math.floor(Math.random() * 9) + 1; // nb random [1,9]
+    const numAlea = Math.floor(Math.random() * 5) + 1; // nb random [1,9]
     // construire nom avatar
     const nomAvatar = `${numAlea}.png`; // ex : 1.png
     // Récupération avatar URL
@@ -52,6 +52,7 @@
     >
       <div>
         <img
+          style="max-width: 30vw;"
           alt="Mon Avatar"
           src={getAvatarUrl($profileStore.avatar_id + ".png")}
         />
