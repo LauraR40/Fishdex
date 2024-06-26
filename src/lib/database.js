@@ -5,7 +5,7 @@ import {
 } from "$env/static/public";
 import { writable, get } from "svelte/store";
 import { browser } from "$app/environment";
-import { showNotification } from "$lib/index";
+import { showNotification, showPopUp } from "$lib/index";
 
 export const supabase = createClient(
   PUBLIC_SUPABASE_URL,
@@ -119,7 +119,7 @@ export async function getAllFish() {
     .select("*")
     .order("nom", { ascending: true });
   if (error) {
-    console.error(error);
+    showPopUp(translateErrors(error.message));
     return [];
   }
   return data;
@@ -144,10 +144,8 @@ export async function signIn(email, password, name = "Anonyme") {
   });
 
   if (error) {
-    //TODO Afficher jolie erreur
-    console.error(error);
-    alert(error.message);
-    return null;
+    showPopUp(translateErrors(error.message));
+    return false;
   }
 
   return data.user.id;
@@ -166,29 +164,27 @@ export async function logIn(email, password) {
   });
 
   if (error) {
-    //TODO Afficher jolie erreur
-    console.error(error);
-    alert(error.message);
-    return;
+    showPopUp(translateErrors(error.message));
+    return false;
   }
+
+  return true;
 }
 /**
  * Mise à jour des stores avec les données de l'utilisateur
  * @param {*} user_id // id de l'utilisateur
  */
 export async function getProfile(user_id) {
-  const { data: user, error: userError } = await supabase
+  const { data: user, error } = await supabase
     .from("profiles")
     .select("*")
     .eq("id", user_id)
     .limit(1)
     .single();
 
-  if (userError) {
-    //TODO Afficher jolie erreur
-    console.error(userError);
-    alert(userError.message);
-    return;
+  if (error) {
+    showPopUp(translateErrors(error.message));
+    return false;
   }
   profileStore.set(user);
   return user;
@@ -235,4 +231,15 @@ export async function updateProfile(updater) {
   profileStore.update(() => {
     return data[0];
   });
+}
+
+export function translateErrors(error) {
+  const translations = {
+    "Invalid login credentials": "Identifiants invalides",
+    "User already registered": "Email déjà utilisé",
+    "Password should be at least 6 characters.":
+      "Le mot de passe doit contenir au moins 6 caractères",
+  };
+
+  return translations[error] || error;
 }

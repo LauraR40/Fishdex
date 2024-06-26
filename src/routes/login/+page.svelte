@@ -4,8 +4,10 @@
   async function handleForm(form) {
     const email = form.target.email.value;
     const password = form.target.password.value;
-    await logIn(email, password);
-    location.href = "/";
+    const isLogged = await logIn(email, password);
+    if (isLogged) {
+      location.href = "/";
+    }
   }
 </script>
 
