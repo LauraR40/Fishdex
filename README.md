@@ -135,10 +135,10 @@ Pour créer ce projet nous avons utilisé :
 
 ## Auteurs
 
-### Développement
+### Développeurs
 
-- Développeuse : **Laura Rocheteau** [github](https://github.com/LauraR40)
-- Hébergement : **Iziram** [github](https://github.com/Iziram)
+- Développeuse principale : **Laura Rocheteau** [github](https://github.com/LauraR40)
+- Aide et Hébergement : **Iziram** [github](https://github.com/Iziram)
 
 ### Design — UX / UI et communication
 
